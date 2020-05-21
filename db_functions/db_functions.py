@@ -1,6 +1,8 @@
 from pymongo import MongoClient
 from initialize_db import db
 from bson import ObjectId
+import datetime
+
 
 class DbFunctions:
 
@@ -41,11 +43,28 @@ class DbFunctions:
         for i in students_with_skill:
             return i['num_students']
 
+    def get_student_who_want_skills(self, skill):
+        students_who_want_skill = db.students.aggregate([{'$match': {"want_skills": skill}}, {"$count": "num_students"}])
+        for i in students_who_want_skill:
+            return i['num_students']
+        return 0
+
+    def get_student_by_date(selfs, find_date):
+        students_by_date = db.students.aggregate([{'$match': {"date": find_date}}, {"$count": "students_today"}])
+        for i in students_by_date:
+            return i['students_today']
+        return 0
+
+
+
 
 
 test = DbFunctions()
-# test.add_student({"name": "Ben","current_magic_skills": ["first_skill", "sec_skill", "third_skill"]})
+# test.add_student({"name": "Alex2","current_magic_skills": ["first_skill", "sec_skill", "third_skill"],"want_skills":["1", "2"], "date": datetime.datetime.now().strftime("%x")})
 # test.get_all_students()
 # test.set_user_skills("5ec53af23c71ae4c346e0666")
 # test.set_user_skills(["1", "1"], "5ec549f39cea44884adc619c")
 # test.get_student_with_skill("1")
+# test.get_student_who_want_skills("1")
+test.get_student_by_date("05/21/20")
+
