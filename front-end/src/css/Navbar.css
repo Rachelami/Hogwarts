@@ -1,6 +1,7 @@
-.navbar {
+.main-navbar {
     color: white;
     margin-right: 45px;
+    /* margin-top: 20px; */
 }
 
 .nav-back{
@@ -8,7 +9,7 @@
     top: 0px;
     background-color: #343A40;
     border-radius: 6px;
-    padding: 0px 35px;
+    padding: 15px 35px;
     margin-bottom: 52px;
 }
 

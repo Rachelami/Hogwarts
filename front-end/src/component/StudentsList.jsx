@@ -1,53 +1,72 @@
 import React from "react";
-import { getAllStudents } from "../lib/api";
+import { getAllStudents, deleteStudent } from "../lib/api";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+import "../css/StudentsList.css";
+import Popup from "reactjs-popup";
+import PopupOnFocus from "./newStudent";
+import { Button } from "react-bootstrap";
+
 
 class StudentsList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// we need to write here - first name, last name, skills...
 			columnDefs: [
+				{
+					headerName: "",
+					field: "",
+                    width: 50,
+					checkboxSelection: true,
+				},
+
 				{
 					headerName: "First name",
 					field: "first_name",
-					sortable: true,
+					// cellStyle: { width: "20px"},
+                    width: 120,
+                    sortable: true,
 				},
 				{
 					headerName: "Last name",
-					field: "last_name",
+                    field: "last_name",
+                    width: 120,
 					sortable: true,
 				},
 				{
 					headerName: "House",
-					field: "house",
+                    field: "house",
+                    width: 120,
 					sortable: true,
 				},
 				{
 					headerName: "Current Skills",
-					field: "current_magic_skills",
+                    field: "current_magic_skills",
+                    width: 120,
 					sortable: true,
 				},
 				{
 					headerName: "Desired Skills",
-					field: "want_skills",
+                    field: "want_skills",
+                    width: 120,
 					sortable: true,
 				},
 				{
 					headerName: "Course Interests",
-					field: "course_interests",
+                    field: "course_interests",
+                    width: 160,
 					sortable: true,
 				},
 				{
 					headerName: "Create Date",
-					field: "create_date",
+                    field: "create_date",
+                    width: 120,
 					sortable: true,
 				},
 				{
 					headerName: "Last Update",
-					field: "last_update_time",
+                    field: "last_update_time",
 					sortable: true,
 				},
 				{
@@ -68,24 +87,45 @@ class StudentsList extends React.Component {
 		this.setState({ rowData: newInfo });
 	}
 
+
+    // function autoSizeAll(skipHeader) {
+    //     var allColumnIds = [];
+    //     gridOptions.columnApi.getAllColumns().forEach(function(column) {
+    //       allColumnIds.push(column.colId);
+    //     });
+      
+    //     gridOptions.columnApi.autoSizeColumns(allColumnIds, skipHeader);
+    //   }
+	// function popForm(){
+
+	// }
+
+    onButtonClick = e => {
+        const selectedNodes = this.gridApi.getSelectedNodes()
+        const selectedData = selectedNodes.map( node => node.data )
+        deleteStudent(selectedData[0]._id)
+    }
+
 	render() {
-		console.log(this.state.rowData);
+		// console.log(this.state.rowData);
 		return (
 			<div
 				className="ag-theme-alpine"
-				style={{
-					height: "500px",
-					width: "1000px",
-				}}
+				// style={{
+				// height: "500px",
+				// width: "60%",
+				// }}
 			>
 				<AgGridReact
 					columnDefs={this.state.columnDefs}
-					rowData={this.state.rowData}
+                    rowData={this.state.rowData}
+                    onGridReady={ params => this.gridApi = params.api }
 				></AgGridReact>
+				<PopupOnFocus />
+                <Button variant="primary" className="deleteBtn" onClick={this.onButtonClick}>Delete</Button>
 			</div>
 		);
 	}
 }
 
 export default StudentsList;
-

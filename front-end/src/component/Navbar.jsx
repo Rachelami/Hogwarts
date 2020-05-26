@@ -1,14 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../css/Navbar.css";
 
-const Navbar = () => {students
+
+const Navbar = () => {
 	return (
 		<div className="nav-back flex">
-			<Link className="navbar" to="/students">
+			<Link className="main-navbar" to="/">
+				Home
+			</Link>
+			<Link className="main-navbar" to="/students">
 			Students List
 			</Link>
-			<Link className="navbar" to="/profile">
-				Profile
+			<Link className="main-navbar" to="/score">
+				House Score
 			</Link>
 		</div>
 	);

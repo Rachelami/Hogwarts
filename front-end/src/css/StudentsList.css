@@ -1,0 +1,12 @@
+
+.ag-theme-alpine{
+    margin-left: 20%;
+    width: 60%;
+    height: 500px;
+
+}
+
+.deleteBtn{
+    background-color: rgb(189, 78, 85);
+    border: 1px solid black;
+}

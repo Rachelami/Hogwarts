@@ -1,0 +1,17 @@
+
+
+.addBtn{
+    margin: 5px;
+    background-color:rgb(96, 134, 86);
+    border: 1px solid rgb(96, 134, 86);
+    text-align: center;
+}
+
+.popUpForm{
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.RequiredText{
+    color: rgb(189, 78, 85);
+}
