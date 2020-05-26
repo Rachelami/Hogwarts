@@ -1,15 +1,18 @@
 import json
+import datetime
 
-class Student:
-    def to_json(self):
-        return json.dumps(self, default=lambda o:o__dict_)
 
-    def __init__(self, student_id, first_name, last_name, creation_time, last_updated_time, current_magic_skills, desired_magic_skilles, course_interests):
-        self.student_id=str(student_id)
-        self.first_name=(first_name)
-        self.last_name = (last_name)
-        self.creation_time = str(creation_time)
-        self.last_updated_time = str(last_updated_time)
-        self.current_magic_skills = (current_magic_skills)
-        self.desired_magic_skilles = (desired_magic_skilles)
-        self.course_interests = (course_interests)
+class Student(dict):
+
+    def __init__(self, student):
+        dict.__init__(self,
+                      first_name=student.get('first_name'),
+                      last_name=student.get('last_name'),
+                      create_date=datetime.date.today().isoformat(),
+                      last_update_time=datetime.datetime.now().isoformat(),
+                      house=student.get('house'),
+                      current_magic_skills = student.get('current_magic_skills'),
+                      want_skills = student.get('want_skills'),
+                      course_interests = student.get('course_interests'))
+
+
