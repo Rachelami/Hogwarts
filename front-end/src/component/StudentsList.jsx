@@ -10,6 +10,8 @@ import { Button } from "react-bootstrap";
 import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import AppContext from "../AppContext";
+import NewStudent from "./StudentPage";
+
 
 class StudentsList extends React.Component {
 	constructor(props) {
@@ -139,20 +141,25 @@ class StudentsList extends React.Component {
 									src={
 										"https://lh3.googleusercontent.com/proxy/JGGmgQC-q4pj6lD6eOeo34AbDuhMmbCGVsELBa2l4nhTGzNU3awZ4YiVyeQFW-oQ5yd5MxAqFFkHbAwNTxYOj5e2g1qd8fH7mZlbUFds22IkC595GP1718z7IOYD"
 									}
-									alt="boohoo"
+									alt="goldenSnitch"
 									className="goldenSnitch"
 								/>
 							</div>
-							<div className="ag-theme-alpine">
+							{/* <div className="flexBoxColum"> */}
+							<div className="container">
 								<PopupOnFocus />
+							<div className="ag-theme-alpine">
 								<AgGridReact
 									columnDefs={this.state.columnDefs}
 									rowData={this.state.rowData}
 									onGridReady={(params) => (this.gridApi = params.api)}
 								></AgGridReact>
+								<div className="deleteText">
+								Please select a user before clicking the button
+								</div>
 								<Button
 									variant="primary"
-									className="goTOpage"
+									className="goTOpage borderBtn"
 									onClick={(event) => this.onAccioClick(event, getID) }
 									// onSubmit={(event) => this.handleSubmit(event, onTweetPost)}
 								>
@@ -163,14 +170,12 @@ class StudentsList extends React.Component {
 								</Button>
 								<Button
 									variant="primary"
-									className="deleteBtn"
+									className="deleteBtn borderBtn"
 									onClick={this.onButtonClick}
 								>
 									Avada Kedavra
 								</Button>
-								<span className="deleteText">
-									please select the user you want to delete
-								</span>
+							</div>
 							</div>
 						</div>
 					)}

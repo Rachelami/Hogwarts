@@ -8,7 +8,7 @@ class PopupOnFocus extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            first_name: "",
+			first_name: "",
 			last_name: "",
 			house: "",
 			current_magic_skills: "",
@@ -16,27 +16,26 @@ class PopupOnFocus extends React.Component {
 			course_interests: "",
 		};
 	}
-    
-    handleOnSubmit() {
-        addStudent(this.state)
-    }
-    
+
+	handleOnSubmit() {
+		addStudent(this.state);
+	}
 
 	render() {
-        // console.log(this.state)
+		// console.log(this.state)
 		return (
 			<Popup
 				trigger={
-					<Button variant="primary" className="addBtn">
-						{" "}
-						Add Student{" "}
-					</Button>
+					<Button variant="primary" className="addBtn borderBtn">+</Button>
 				}
 				modal
 				closeOnDocumentClick
 			>
 				{/* <Form onSubmit={this.handleOnSubmit}> */}
-					<Form className="popUpForm" onSubmit={(event) => this.handleOnSubmit(event)}>
+				<Form
+					className="popUpForm"
+					onSubmit={(event) => this.handleOnSubmit(event)}
+				>
 					<Form.Group controlId="formBasicEmail">
 						<Form.Label>First Name</Form.Label>
 						<Form.Control
@@ -69,9 +68,7 @@ class PopupOnFocus extends React.Component {
 							type="text"
 							name="house"
 							placeholder="Enter House"
-							onChange={(event) =>
-								this.setState({ house: event.target.value })
-							}
+							onChange={(event) => this.setState({ house: event.target.value })}
 						/>
 						<Form.Text className="RequiredText">*Required Text</Form.Text>
 					</Form.Group>
@@ -81,9 +78,10 @@ class PopupOnFocus extends React.Component {
 						<Form.Control
 							type="text"
 							name="current_magic_skills"
-                            placeholder="Enter Current skills"
-                            onChange={(event) => this.setState({ current_magic_skills: event.target.value })}
-
+							placeholder="Enter Current skills"
+							onChange={(event) =>
+								this.setState({ current_magic_skills: event.target.value })
+							}
 						/>
 					</Form.Group>
 					{/* change name */}
@@ -93,9 +91,10 @@ class PopupOnFocus extends React.Component {
 						<Form.Control
 							type="text"
 							name="want_skills"
-                            placeholder="Enter Desired skills"
-                            onChange={(event) => this.setState({ want_skills: event.target.value })}
-
+							placeholder="Enter Desired skills"
+							onChange={(event) =>
+								this.setState({ want_skills: event.target.value })
+							}
 						/>
 					</Form.Group>
 					{/* change name */}
@@ -105,13 +104,14 @@ class PopupOnFocus extends React.Component {
 						<Form.Control
 							type="text"
 							name="course_interests"
-                            placeholder="Enter Course Interests"
-                            onChange={(event) => this.setState({ course_interests: event.target.value })}
-
+							placeholder="Enter Course Interests"
+							onChange={(event) =>
+								this.setState({ course_interests: event.target.value })
+							}
 						/>
 					</Form.Group>
 
-					<Button variant="primary" type="submit">
+					<Button variant="primary" type="submit" className="addStudentBtn borderBtn">
 						Submit
 					</Button>
 				</Form>
@@ -122,18 +122,16 @@ class PopupOnFocus extends React.Component {
 
 export default PopupOnFocus;
 
-
-
-    // async handleOnSubmit(event) {
-    //     event.preventDefault();
-    //     let student = {
-    //             "first_name": this.state.first_name,
-    //             "last_name": this.state.last_name,
-    //             "house": this.state.house,
-    //             "current_magic_skills": this.state.current_magic_skills,
-    //             "want_skills": this.state.want_skills,
-    //             "course_interests": this.state.course_interests
-    //         }
-    //     console.log(student)
-    //     const response = await addStudent(student);
-    //     }
+// async handleOnSubmit(event) {
+//     event.preventDefault();
+//     let student = {
+//             "first_name": this.state.first_name,
+//             "last_name": this.state.last_name,
+//             "house": this.state.house,
+//             "current_magic_skills": this.state.current_magic_skills,
+//             "want_skills": this.state.want_skills,
+//             "course_interests": this.state.course_interests
+//         }
+//     console.log(student)
+//     const response = await addStudent(student);
+//     }
