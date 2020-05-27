@@ -9,7 +9,9 @@ export function getAllStudents() {
 }
 
 export function getSingleStudent(student_id) {
-	return axios.get(`${baseUrl}/students/${student_id}`);
+	console.log(student_id)
+	console.log(axios.get(`${baseUrl}/student/${student_id}`))
+	return axios.get(`${baseUrl}/student/${student_id}`);
 }
 
 export function getStudentWithSkill(skill) {

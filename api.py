@@ -25,36 +25,32 @@ def get_all_students_route():
 @app.route("/student", methods=['POST']) #works
 def add_student_route():
     content = request.json['data']
-    print(content)
     try:
         validator.validate_new_student(content)
     except Exception as error:
-        print("error")
-        print(error)
-
         response = app.response_class(response=json.dumps({"error": str(error)}), status=400,
                                       mimetype="application/json")
-        print("response")
-        print(response)
         return response
     new_student = Student(content)
-    print("new_student")
-    print(new_student)
     student_id = db.add_student(new_student)
-    print("student_id")
-    print(student_id)
     response = app.response_class(response=json.dumps({"student_id": student_id}), status=200, mimetype="application/json")
     return response
 
 @app.route("/student/<student_id>") #works
 def get_single_student_route(student_id):
+    print("student_id")
+    print(student_id)
     try:
         validator.validate_objectid(student_id)
     except Exception as error:
+        print("error")
+        print(error)
         response = app.response_class(response=json.dumps({"Error": str(error)}), status=400,
                                       mimetype="application/json")
         return response
     student = db.get_single_student(student_id)
+    print("student")
+    print(student)
     response = app.response_class(response=json.dumps(student), status=200, mimetype="application/json")
     return response
 
