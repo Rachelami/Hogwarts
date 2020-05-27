@@ -16,24 +16,33 @@ validator = Validators()
 
 @app.route("/students") #works
 def get_all_students_route():
-    print("hjgjh")
     all_students = db.get_all_students()
-    print(all_students)
+    # print(all_students)
     response = app.response_class(response=json.dumps(all_students), status=200, mimetype="application/json")
     return response
 
 
 @app.route("/student", methods=['POST']) #works
 def add_student_route():
-    content = request.form
+    content = request.json['data']
+    print(content)
     try:
         validator.validate_new_student(content)
     except Exception as error:
+        print("error")
+        print(error)
+
         response = app.response_class(response=json.dumps({"error": str(error)}), status=400,
                                       mimetype="application/json")
+        print("response")
+        print(response)
         return response
     new_student = Student(content)
+    print("new_student")
+    print(new_student)
     student_id = db.add_student(new_student)
+    print("student_id")
+    print(student_id)
     response = app.response_class(response=json.dumps({"student_id": student_id}), status=200, mimetype="application/json")
     return response
 
@@ -63,7 +72,7 @@ def delete_student_route(student_id):
 
 @app.route("/student/<student_id>/set_skills/<skills>", methods=['POST'])
 def set_user_skills_route(student_id, skills):
-    print(skills)
+    # print(skills)
     setSkills = db.set_user_skills(skills, student_id)
     response = app.response_class(response=json.dumps(setSkills), status=200, mimetype="application/json")
     return response

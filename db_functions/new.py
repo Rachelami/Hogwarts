@@ -9,7 +9,7 @@ class DataLayer:
         self.__db = self.__client["hogwarts"]
 
     def get_user(self, user_name):
-        user_dict = self.__db.student.find_one({"firstName": user_name})
+        user_dict = self.__db.student.find_one({"first_name": user_name})
         user = self.create_user_from_dict(user_dict)
         return user
 
