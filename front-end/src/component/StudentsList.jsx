@@ -12,13 +12,12 @@ import { Link } from "react-router-dom";
 import AppContext from "../AppContext";
 import NewStudent from "./StudentPage";
 
-
 class StudentsList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			acciStudent: false,
-			idRoute: "",
+			userID: "",
 			columnDefs: [
 				{
 					headerName: "",
@@ -30,7 +29,6 @@ class StudentsList extends React.Component {
 				{
 					headerName: "First name",
 					field: "first_name",
-					// cellStyle: { width: "20px"},
 					width: 120,
 					resizable: true,
 					sortable: true,
@@ -112,70 +110,62 @@ class StudentsList extends React.Component {
 
 	onAccioClick = (event, callback) => {
 		event.preventDefault();
-		// console.log(callback)
 		const selectedNodes = this.gridApi.getSelectedNodes();
 		const selectedData = selectedNodes.map((node) => node.data);
 		if (selectedData[0] !== undefined) {
-			console.log("dsfds")
-			console.log(selectedData[0]._id)
-
-			// getSingleStudent(selectedData[0]._id);
-			// this.setState({ idRoute: selectedData[0]._id });
 			this.setState({ acciStudent: true });
-			callback(selectedData[0]._id)
-			// "/studentPage"
+			this.setState({userID: selectedData[0]._id})
+			callback(selectedData[0]._id);
 		}
 	};
 
 	render() {
-		// console.log(this.state.rowData);
+		console.log(this.state.columnDefs)
 		return (
 			<div className="flexBox">
 				<AppContext.Consumer>
-					{(
-						{ getID } //what to do now
-					) => (
+					{({ getID }) => (
 						<div className="flexBox">
 							<div>
 								<img
 									src={
-										"https://lh3.googleusercontent.com/proxy/JGGmgQC-q4pj6lD6eOeo34AbDuhMmbCGVsELBa2l4nhTGzNU3awZ4YiVyeQFW-oQ5yd5MxAqFFkHbAwNTxYOj5e2g1qd8fH7mZlbUFds22IkC595GP1718z7IOYD"
+										"https://lh3.googleusercontent.com/proxy/YNq5ZJAHX8ZPizNm8fLUtN6HNjUHvQCLJ-9rjhVUo7TIQ5KUet2TftsVmjaR-KcKTqdVO8uW4GRkiy1KscwJHKqoNSHLjUNBjZMKDcrrwBcMUfmMIU9w3mBUl5Ze"
 									}
 									alt="goldenSnitch"
 									className="goldenSnitch"
 								/>
 							</div>
-							{/* <div className="flexBoxColum"> */}
 							<div className="container">
 								<PopupOnFocus />
-							<div className="ag-theme-alpine">
-								<AgGridReact
-									columnDefs={this.state.columnDefs}
-									rowData={this.state.rowData}
-									onGridReady={(params) => (this.gridApi = params.api)}
-								></AgGridReact>
-								<div className="deleteText">
-								Please select a user before clicking the button
+								<div className="ag-theme-alpine">
+									<AgGridReact
+										columnDefs={this.state.columnDefs}
+										rowData={this.state.rowData}
+										onGridReady={(params) => (this.gridApi = params.api)}
+									></AgGridReact>
+									<div className="deleteText">
+										Please select a user before clicking the button
+									</div>
+									<Button
+										variant="primary"
+										className="goTOpage borderBtn"
+										onClick={(event) => this.onAccioClick(event, getID)}
+									>
+										{this.state.acciStudent === true && (
+											// <Redirect to={`/studentPage`} />
+											// <Redirect to={`/studentPage/:id`} />
+											<Redirect to={`/studentPage/${this.state.userID}`} />
+										)}
+										Accio Student
+									</Button>
+									<Button
+										variant="primary"
+										className="deleteBtn borderBtn"
+										onClick={this.onButtonClick}
+									>
+										Avada Kedavra
+									</Button>
 								</div>
-								<Button
-									variant="primary"
-									className="goTOpage borderBtn"
-									onClick={(event) => this.onAccioClick(event, getID) }
-									// onSubmit={(event) => this.handleSubmit(event, onTweetPost)}
-								>
-									{this.state.acciStudent === true && (
-										<Redirect to={"/studentPage"} />
-									)}
-									Accio Student
-								</Button>
-								<Button
-									variant="primary"
-									className="deleteBtn borderBtn"
-									onClick={this.onButtonClick}
-								>
-									Avada Kedavra
-								</Button>
-							</div>
 							</div>
 						</div>
 					)}

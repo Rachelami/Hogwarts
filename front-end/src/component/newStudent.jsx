@@ -22,16 +22,14 @@ class PopupOnFocus extends React.Component {
 	}
 
 	render() {
-		// console.log(this.state)
 		return (
 			<Popup
 				trigger={
-					<Button variant="primary" className="addBtn borderBtn">+</Button>
+					<Button variant="primary" className="addBtn borderBtn"><span className="align-plus">+</span></Button>
 				}
 				modal
 				closeOnDocumentClick
 			>
-				{/* <Form onSubmit={this.handleOnSubmit}> */}
 				<Form
 					className="popUpForm"
 					onSubmit={(event) => this.handleOnSubmit(event)}
@@ -84,7 +82,6 @@ class PopupOnFocus extends React.Component {
 							}
 						/>
 					</Form.Group>
-					{/* change name */}
 
 					<Form.Group controlId="formBasicPassword">
 						<Form.Label>Desired skills</Form.Label>
@@ -97,8 +94,6 @@ class PopupOnFocus extends React.Component {
 							}
 						/>
 					</Form.Group>
-					{/* change name */}
-
 					<Form.Group controlId="formBasicPassword">
 						<Form.Label>Course Interests</Form.Label>
 						<Form.Control
@@ -122,16 +117,3 @@ class PopupOnFocus extends React.Component {
 
 export default PopupOnFocus;
 
-// async handleOnSubmit(event) {
-//     event.preventDefault();
-//     let student = {
-//             "first_name": this.state.first_name,
-//             "last_name": this.state.last_name,
-//             "house": this.state.house,
-//             "current_magic_skills": this.state.current_magic_skills,
-//             "want_skills": this.state.want_skills,
-//             "course_interests": this.state.course_interests
-//         }
-//     console.log(student)
-//     const response = await addStudent(student);
-//     }

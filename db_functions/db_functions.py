@@ -35,8 +35,12 @@ class DbFunctions:
             return False
 
     def set_user_skills(self,student_id, skills):
+        print("skills api" + skills)
+        print(("userid api" + student_id))
         my_stusent = self.get_single_student(student_id)
+        print("my_stusent api"+ my_stusent)
         current_magic_skills = my_stusent["current_magic_skills"]
+        print("current_magic_skills api" + current_magic_skills)
         for i in skills:
             current_magic_skills.append(i)
         # print(current_magic_skills)

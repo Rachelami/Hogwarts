@@ -7,9 +7,8 @@
     background-color:rgb(96, 134, 86);
     text-align: center;
     z-index: 1;
-    /* font-size: 50px; */
-
 }
+
 .addBtn:hover{
     margin: 5px;
     background-color:rgb(59, 85, 53);
@@ -20,18 +19,10 @@
 
 .popUpForm{
     padding: 15px;
+    font-size: 20px;
     border-radius: 10px;
-    /* background-image: url("https://i.pinimg.com/originals/8f/b0/7d/8fb07d1d8660048cc089a07047e7e77d.jpg"); */
     background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg");
-
-    /* background-image: url("https://www.netanella.com/pictures/a21463-r.jpg"); */
 }
-
-/* .popup-content {
-    background-color: none;
-    border: none;
-} */
-
 
 .RequiredText{
     color: rgb(189, 78, 85);
@@ -39,8 +30,13 @@
 
 .addStudentBtn{
     background-color:rgb(96, 134, 86);
+    font-size: 20px;
 }
 
 .addStudentBtn:hover{
     background-color:rgb(52, 87, 43);
 }
+
+.align-plus{
+    font-family: arial, sans-serif;
+    transform: translate(2px, 25px);}

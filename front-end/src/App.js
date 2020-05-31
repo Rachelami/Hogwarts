@@ -35,8 +35,7 @@ class App extends React.Component {
 	}
 
 	render() {
-		
-		console.log(this.state.infoStudent);
+		console.log(this.state.infoStudent._id);
 		return (
 			<div className="App">
 				<Router>
@@ -59,8 +58,9 @@ class App extends React.Component {
 							<Route path="/score">
 								<HouseScore />
 							</Route>
-
-							<Route path={`/studentPage`}>
+							<Route path={`/studentPage/:id`}>
+							{/* <Route path={`/studentPage/id=${this.state.infoStudent._id}`}> */}
+							{/* <Route path={`/studentPage/id=${this.state.infoStudent._id}`}> */}
 								<StudentPage />
 							</Route>
 						</AppContext.Provider>
