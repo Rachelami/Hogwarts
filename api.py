@@ -68,11 +68,11 @@ def delete_student_route(student_id):
 
 @app.route("/student/<student_id>/set_skills/<skills>", methods=['POST'])
 def set_user_skills_route(student_id, skills):
-    print("skills,student_id ")
-    print("student_id "+student_id)
-    print("skills"+skills)
-    setSkills = db.set_user_skills( student_id, skills)
-    print("setskill" + setSkills)
+    print("skills API")
+    print(skills)
+    skillsArray = []
+    skillsArray.append(skills)
+    setSkills = db.set_user_skills( student_id, skillsArray)
     response = app.response_class(response=json.dumps(setSkills), status=200, mimetype="application/json")
     print("responce" +response)
     return response

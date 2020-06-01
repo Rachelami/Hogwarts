@@ -22,19 +22,20 @@ class StudentPage extends React.Component {
 			this.setState({ infoStudent: response.data });
 		});
 	}
-
+	
 	render() {
 		let { infoStudent } = this.state;
 		console.log("infoStudent");
 		console.log(infoStudent);
-
+		console.log(infoStudent.current_magic_skills)
+		
 		return (
 			<div>
 				{/* <AppContext.Consumer>
 					{({ infoStudent }) => ( */}
 				<div>
 					<div className="studentCard">
-						<div>
+						<div className="picDiv">
 							{infoStudent.house === "gryffindor" && (
 								<img
 									src="https://i.pinimg.com/originals/a1/bf/0a/a1bf0a96a8d25df94e22a1219582f7f7.jpg"

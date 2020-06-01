@@ -1,42 +1,58 @@
-
-
-.addBtn{
-    margin: 5px;
-    height:60px;
-    width:60px;
-    background-color:rgb(96, 134, 86);
-    text-align: center;
-    z-index: 1;
+.addBtn {
+	margin: 5px;
+	height: 60px;
+	width: 60px;
+	background-color: rgb(96, 134, 86);
+	text-align: center;
+	z-index: 1;
 }
 
-.addBtn:hover{
-    margin: 5px;
-    background-color:rgb(59, 85, 53);
-    border: 1px solid black;
-    text-align: center;
+.addBtn:hover {
+	margin: 5px;
+	background-color: rgb(59, 85, 53);
+	border: 1px solid black;
+	text-align: center;
 }
 
+.popUpForm {
+	padding: 15px;
+	font-size: 20px;
+	border-radius: 10px;
+	background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg");
+}
 
-.popUpForm{
-    padding: 15px;
-    font-size: 20px;
+.RequiredText {
+	color: rgb(189, 78, 85);
+}
+
+.addStudentBtn {
+	background-color: rgb(96, 134, 86);
+	font-size: 20px;
+}
+
+.addStudentBtn:hover {
+	background-color: rgb(52, 87, 43);
+}
+
+.align-plus {
+	font-family: arial, sans-serif;
+	transform: translate(2px, 25px);
+}
+
+.flex {
+    display: flex;
+}
+
+.firstNameDiv{
+    margin-right: 10px;
+    width: 350px;
+}
+
+.lastNameDiv{
+    width: 350px;
+}
+
+.popup-content{
+    padding: 0px !important;
     border-radius: 10px;
-    background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg");
 }
-
-.RequiredText{
-    color: rgb(189, 78, 85);
-}
-
-.addStudentBtn{
-    background-color:rgb(96, 134, 86);
-    font-size: 20px;
-}
-
-.addStudentBtn:hover{
-    background-color:rgb(52, 87, 43);
-}
-
-.align-plus{
-    font-family: arial, sans-serif;
-    transform: translate(2px, 25px);}

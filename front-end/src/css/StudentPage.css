@@ -4,7 +4,7 @@
 
 .studentCard {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	max-width: 550px;
+	max-width: 700px;
 	margin: auto;
 	text-align: center;
     font-family: arial;
@@ -43,4 +43,8 @@ a:hover {
 
 .cardTextRight{
 	width: 600px;
+}
+
+.picDiv{
+	width: 300px;
 }

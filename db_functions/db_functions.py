@@ -20,6 +20,7 @@ class DbFunctions:
         return student_list
 
     def get_single_student(self, student_id):
+        # print("23. student_id" + student_id)
         student = db.students.find_one({'_id': ObjectId(student_id)})
         if student is None:
             return {"Error": "Id '{}' does not exist.".format(student_id)}
@@ -35,18 +36,32 @@ class DbFunctions:
             return False
 
     def set_user_skills(self,student_id, skills):
-        print("skills api" + skills)
-        print(("userid api" + student_id))
+        print("skills DB")
+        print(skills)
+        # print(("userid api" + student_id))
         my_stusent = self.get_single_student(student_id)
-        print("my_stusent api"+ my_stusent)
+        # current_magic_skills_join = my_stusent["".join("current_magic_skills")]
         current_magic_skills = my_stusent["current_magic_skills"]
-        print("current_magic_skills api" + current_magic_skills)
+
+        print("current_magic_skills")
+        print(current_magic_skills)
+        # print("current_magic_skills join")
+        # print(current_magic_skills_join)
         for i in skills:
+            print("i")
+            print(i)
             current_magic_skills.append(i)
+            # current_magic_skills += (i)
         # print(current_magic_skills)
+        print("current_magic_skills ")
+        print(current_magic_skills)
         current_magic_skills = list(dict.fromkeys(current_magic_skills))
+        print("current_magic_skills")
+        print(current_magic_skills)
         # print(current_magic_skills)
         updated = db.students.update_one({'_id': ObjectId(student_id)}, {"$set": {"current_magic_skills":current_magic_skills}})
+        # updated = db.students.update_one({'_id': ObjectId(student_id)}, {"$set": {"current_magic_skills":current_magic_skills}})
+
         return updated
 
     def get_student_with_skill(self, skill):

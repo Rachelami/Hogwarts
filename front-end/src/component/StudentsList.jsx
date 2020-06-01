@@ -18,6 +18,7 @@ class StudentsList extends React.Component {
 		this.state = {
 			acciStudent: false,
 			userID: "",
+			// reload: false,
 			columnDefs: [
 				{
 					headerName: "",
@@ -93,6 +94,7 @@ class StudentsList extends React.Component {
 	}
 
 	async componentDidMount() {
+		// this.setState({reload: false});
 		let data = await getAllStudents();
 		console.log(data.data);
 		let previousinfo = this.state.rowData;
@@ -105,7 +107,9 @@ class StudentsList extends React.Component {
 		const selectedData = selectedNodes.map((node) => node.data);
 		if (selectedData[0] !== undefined) {
 			deleteStudent(selectedData[0]._id);
+			window.location.reload(true);
 		}
+		// this.setState({reload: true});
 	};
 
 	onAccioClick = (event, callback) => {
@@ -114,13 +118,13 @@ class StudentsList extends React.Component {
 		const selectedData = selectedNodes.map((node) => node.data);
 		if (selectedData[0] !== undefined) {
 			this.setState({ acciStudent: true });
-			this.setState({userID: selectedData[0]._id})
+			this.setState({ userID: selectedData[0]._id });
 			callback(selectedData[0]._id);
 		}
 	};
 
 	render() {
-		console.log(this.state.columnDefs)
+		console.log(this.state.columnDefs);
 		return (
 			<div className="flexBox">
 				<AppContext.Consumer>
@@ -128,9 +132,7 @@ class StudentsList extends React.Component {
 						<div className="flexBox">
 							<div>
 								<img
-									src={
-										"https://lh3.googleusercontent.com/proxy/YNq5ZJAHX8ZPizNm8fLUtN6HNjUHvQCLJ-9rjhVUo7TIQ5KUet2TftsVmjaR-KcKTqdVO8uW4GRkiy1KscwJHKqoNSHLjUNBjZMKDcrrwBcMUfmMIU9w3mBUl5Ze"
-									}
+									src="./images/unnamed.gif"
 									alt="goldenSnitch"
 									className="goldenSnitch"
 								/>

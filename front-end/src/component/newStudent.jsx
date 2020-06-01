@@ -11,9 +11,10 @@ class PopupOnFocus extends React.Component {
 			first_name: "",
 			last_name: "",
 			house: "",
-			current_magic_skills: "",
-			want_skills: "",
+			current_magic_skills: [],
+			want_skills: [],
 			course_interests: "",
+			disabled: false,
 		};
 	}
 
@@ -21,11 +22,40 @@ class PopupOnFocus extends React.Component {
 		addStudent(this.state);
 	}
 
+	curentSkills(name) {
+		console.log(name);
+		// this.setState({ current_magic_skills: })
+		this.setState({
+			current_magic_skills: [...this.state.current_magic_skills, name],
+		});
+		// console.log(this.state.current_magic_skills);
+	}
+
+	DesiredSkills(name) {
+		console.log(name);
+		// this.setState({ current_magic_skills: })
+		this.setState({
+			want_skills: [...this.state.want_skills, name],
+		});
+		// console.log(this.state.current_magic_skills);
+	}
+
+	setHouse(name) {
+		console.log(name);
+		this.setState({ house: name })
+		this.setState({ disabled: true })
+	}
+
 	render() {
+		let {current_magic_skills,want_skills } = this.state
+		console.log(current_magic_skills)
+		console.log(want_skills)
 		return (
 			<Popup
 				trigger={
-					<Button variant="primary" className="addBtn borderBtn"><span className="align-plus">+</span></Button>
+					<Button variant="primary" className="addBtn borderBtn">
+						<span className="align-plus">+</span>
+					</Button>
 				}
 				modal
 				closeOnDocumentClick
@@ -34,6 +64,8 @@ class PopupOnFocus extends React.Component {
 					className="popUpForm"
 					onSubmit={(event) => this.handleOnSubmit(event)}
 				>
+					<div className="flex">
+					<div className="firstNameDiv">
 					<Form.Group controlId="formBasicEmail">
 						<Form.Label>First Name</Form.Label>
 						<Form.Control
@@ -46,7 +78,9 @@ class PopupOnFocus extends React.Component {
 						/>
 						<Form.Text className="RequiredText">*Required Text</Form.Text>
 					</Form.Group>
+					</div>
 
+							<div className="lastNameDiv">
 					<Form.Group controlId="formBasicPassword">
 						<Form.Label>Last Name</Form.Label>
 						<Form.Control
@@ -59,7 +93,8 @@ class PopupOnFocus extends React.Component {
 						/>
 						<Form.Text className="RequiredText">*Required Text</Form.Text>
 					</Form.Group>
-
+					</div></div>
+{/* 
 					<Form.Group controlId="formBasicPassword">
 						<Form.Label>House</Form.Label>
 						<Form.Control
@@ -69,21 +104,175 @@ class PopupOnFocus extends React.Component {
 							onChange={(event) => this.setState({ house: event.target.value })}
 						/>
 						<Form.Text className="RequiredText">*Required Text</Form.Text>
-					</Form.Group>
+					</Form.Group> */}
 
-					<Form.Group controlId="formBasicPassword">
-						<Form.Label>Current skills</Form.Label>
-						<Form.Control
-							type="text"
-							name="current_magic_skills"
-							placeholder="Enter Current skills"
-							onChange={(event) =>
-								this.setState({ current_magic_skills: event.target.value })
-							}
-						/>
-					</Form.Group>
+					<div>House:</div>
+					<Form>
+						{["checkbox"].map((type) => (
+							<div key={`custom-inline-${type}`} className="mb-3">
+								<Form.Check
+									custom
+									inline
+									disabled = {this.state.disabled}
+									label="Gryffindor"
+									name="gryffindor"
+									type={type}
+									id={`custom-inline-${type}-13`}
+									onChange={(event) => this.setHouse(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									disabled = {this.state.disabled}
+									label="Ravenclaw"
+									name="ravenclaw"
+									type={type}
+									id={`custom-inline-${type}-14`}
+									onChange={(event) => this.setHouse(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									disabled = {this.state.disabled}
+									label="Hufflepuff"
+									name="hufflepuff"
+									type={type}
+									id={`custom-inline-${type}-15`}
+									onChange={(event) => this.setHouse(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									disabled = {this.state.disabled}
+									label="Slytherin"
+									name="slytherin"
+									type={type}
+									id={`custom-inline-${type}-16`}
+									onChange={(event) => this.setHouse(event.target.name)}
+								/>
+							</div>
+						))}
+					</Form>
 
-					<Form.Group controlId="formBasicPassword">
+
+
+					<div>Current skills:</div>
+					<Form>
+						{["checkbox"].map((type) => (
+							<div key={`custom-inline-${type}`} className="mb-3">
+								<Form.Check
+									custom
+									inline
+									label="Flying"
+									name="Flying"
+									type={type}
+									id={`custom-inline-${type}-1`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Defense"
+									name="Defense"
+									type={type}
+									id={`custom-inline-${type}-2`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Parseltongue"
+									name="Parseltongue"
+									type={type}
+									id={`custom-inline-${type}-3`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Astronomy"
+									name="Astronomy"
+									type={type}
+									id={`custom-inline-${type}-4`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Charms"
+									name="Charms"
+									type={type}
+									id={`custom-inline-${type}-5`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Herbs"
+									name="Herbs"
+									type={type}
+									id={`custom-inline-${type}-6`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="History"
+									name="History"
+									type={type}
+									id={`custom-inline-${type}-7`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Potions"
+									name="Potions"
+									type={type}
+									id={`custom-inline-${type}-8`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Transfiguration"
+									name="Transfiguration"
+									type={type}
+									id={`custom-inline-${type}-9`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Runes"
+									name="Runes"
+									type={type}
+									id={`custom-inline-${type}-10`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Divination"
+									name="Divination"
+									type={type}
+									id={`custom-inline-${type}-11`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Muggle Knowledge"
+									name="Muggle Knowledge"
+									type={type}
+									id={`custom-inline-${type}-12`}
+									onChange={(event) => this.curentSkills(event.target.name)}
+								/>
+							</div>
+						))}
+					</Form>
+
+					{/* <Form.Group controlId="formBasicPassword">
 						<Form.Label>Desired skills</Form.Label>
 						<Form.Control
 							type="text"
@@ -93,7 +282,128 @@ class PopupOnFocus extends React.Component {
 								this.setState({ want_skills: event.target.value })
 							}
 						/>
-					</Form.Group>
+					</Form.Group> */}
+
+
+
+					<div>Desired skills:</div>
+					<Form>
+						{["checkbox"].map((type) => (
+							<div key={`custom-inline-${type}`} className="mb-3">
+								<Form.Check
+									custom
+									inline
+									label="Flying"
+									name="Flying"
+									type={type}
+									id={`custom-inline-${type}-17`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Defense"
+									name="Defense"
+									type={type}
+									id={`custom-inline-${type}-18`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Parseltongue"
+									name="Parseltongue"
+									type={type}
+									id={`custom-inline-${type}-19`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Astronomy"
+									name="Astronomy"
+									type={type}
+									id={`custom-inline-${type}-20`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Charms"
+									name="Charms"
+									type={type}
+									id={`custom-inline-${type}-21`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Herbs"
+									name="Herbs"
+									type={type}
+									id={`custom-inline-${type}-22`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="History"
+									name="History"
+									type={type}
+									id={`custom-inline-${type}-23`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Potions"
+									name="Potions"
+									type={type}
+									id={`custom-inline-${type}-24`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Transfiguration"
+									name="Transfiguration"
+									type={type}
+									id={`custom-inline-${type}-25`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Runes"
+									name="Runes"
+									type={type}
+									id={`custom-inline-${type}-26`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Divination"
+									name="Divination"
+									type={type}
+									id={`custom-inline-${type}-27`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+								<Form.Check
+									custom
+									inline
+									label="Muggle Knowledge"
+									name="Muggle Knowledge"
+									type={type}
+									id={`custom-inline-${type}-28`}
+									onChange={(event) => this.DesiredSkills(event.target.name)}
+								/>
+							</div>
+						))}
+					</Form>
+
+
+
 					<Form.Group controlId="formBasicPassword">
 						<Form.Label>Course Interests</Form.Label>
 						<Form.Control
@@ -106,7 +416,11 @@ class PopupOnFocus extends React.Component {
 						/>
 					</Form.Group>
 
-					<Button variant="primary" type="submit" className="addStudentBtn borderBtn">
+					<Button
+						variant="primary"
+						type="submit"
+						className="addStudentBtn borderBtn"
+					>
 						Submit
 					</Button>
 				</Form>
@@ -116,4 +430,3 @@ class PopupOnFocus extends React.Component {
 }
 
 export default PopupOnFocus;
-
