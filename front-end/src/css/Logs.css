@@ -1,0 +1,15 @@
+td {
+	width: 100px;
+}
+
+table {
+	table-layout: fixed;
+}
+
+.white {
+	color: white;
+}
+
+.row {
+	display: inherit;
+}

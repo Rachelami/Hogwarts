@@ -12,7 +12,7 @@
 }
 
 .deleteBtn {
-	background-color: rgb(189, 78, 85);
+	background-color: rgb(206, 53, 63);
 	border: 1px solid black;
 	margin: 5px;
 }
@@ -50,9 +50,11 @@
 }
 
 .ag-header-cell {
-	background-color: #683f27;
+	background-color: black;
+	color: white;
+	/* background-color: #683f27; */
 	font-size: 20px;
-	background-image: url("https://www.transparenttextures.com/patterns/leather.png");
+	/* background-image: url("https://www.transparenttextures.com/patterns/leather.png"); */
 }
 
 .ag-cell {
@@ -81,11 +83,11 @@
 }
 
 .goTOpage {
-	background-color: rgb(187, 160, 84);
+	background-color: rgb(235, 206, 44);
 }
 
 .goTOpage:hover {
-	background-color: rgb(139, 115, 47);
+	background-color: rgb(173, 140, 49);
 }
 
 .borderBtn {
