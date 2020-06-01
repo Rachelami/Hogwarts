@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Navbar.css";
 
-
 const Navbar = () => {
 	return (
 		<div className="nav-back flex">
@@ -10,11 +9,21 @@ const Navbar = () => {
 				Home
 			</Link>
 			<Link className="main-navbar" to="/students">
-			Students List
+				Students List
 			</Link>
 			<Link className="main-navbar" to="/score">
 				House Score
 			</Link>
+
+			{/* <Link to="/login" className="nav-link">
+				Login
+			</Link>
+
+			<Link to="/register" className="nav-link">
+				Register
+			</Link> */}
+
+
 		</div>
 	);
 };

@@ -9,8 +9,8 @@ export function getAllStudents() {
 }
 
 export function getSingleStudent(student_id) {
-	console.log("API student_id")
-	console.log(student_id)
+	console.log("API student_id");
+	console.log(student_id);
 	// console.log(axios.get(`${baseUrl}/student/${student_id}`))
 	return axios.get(`${baseUrl}/student/${student_id}`);
 }
@@ -30,9 +30,9 @@ export function getStudentByDate(date) {
 //POST
 
 export function addStudent(data) {
-    // console.log("data");
-    // console.log(data);
-	axios.post(`${baseUrl}/student`, {data}).then(
+	// console.log("data");
+	// console.log(data);
+	axios.post(`${baseUrl}/student`, { data }).then(
 		(response) => {
 			console.log(response);
 		},
@@ -41,7 +41,6 @@ export function addStudent(data) {
 		}
 	);
 }
-
 
 // const config = {
 //     headers: {
@@ -53,11 +52,10 @@ export function addStudent(data) {
 //   return axios.post(`${baseUrl}/student`, data, config);
 // }
 
-
 export async function setUserSkills(student_id, skills) {
-	console.log("student_id, skills")
-	console.log(student_id)
-	console.log(skills)
+	console.log("student_id, skills");
+	console.log(student_id);
+	console.log(skills);
 	await axios
 		.post(`${baseUrl}/student/${student_id}/set_skills/${skills}`)
 		.then(
@@ -78,5 +76,34 @@ export async function deleteStudent(student_id) {
 		.delete(`${baseUrl}/student/delete/${student_id}`)
 		.then((response) => {
 			console.log(response);
-        });
+		});
 }
+
+// Login
+export const register = (newUser) => {
+	return axios
+		.post(`${baseUrl}/users/register`, {
+			first_name: newUser.first_name,
+			last_name: newUser.last_name,
+			email: newUser.email,
+			password: newUser.password,
+		})
+		.then((response) => {
+			console.log("Registered");
+		});
+};
+
+export const login = (user) => {
+	return axios
+		.post(`${baseUrl}/users/login`, {
+			email: user.email,
+			password: user.password,
+		})
+		.then((response) => {
+			localStorage.setItem("usertoken", response.data.token);
+			return response.data.token;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};

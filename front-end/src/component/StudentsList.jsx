@@ -6,11 +6,12 @@ import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import "../css/StudentsList.css";
 import Popup from "reactjs-popup";
 import PopupOnFocus from "./newStudent";
-import { Button } from "react-bootstrap";
+import { Button, Alert } from "react-bootstrap";
 import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import AppContext from "../AppContext";
 import NewStudent from "./StudentPage";
+import jwt_decode from "jwt-decode";
 
 class StudentsList extends React.Component {
 	constructor(props) {
@@ -18,6 +19,8 @@ class StudentsList extends React.Component {
 		this.state = {
 			acciStudent: false,
 			userID: "",
+			email: "",
+			alert: false,
 			// reload: false,
 			columnDefs: [
 				{
@@ -94,23 +97,48 @@ class StudentsList extends React.Component {
 	}
 
 	async componentDidMount() {
-		// this.setState({reload: false});
 		let data = await getAllStudents();
 		console.log(data.data);
 		let previousinfo = this.state.rowData;
 		let newInfo = previousinfo.concat(data.data);
 		this.setState({ rowData: newInfo });
+
+		const token = localStorage.usertoken;
+		const decoded = jwt_decode(token);
+		console.log("decoded")
+		console.log(decoded)
+		this.setState({
+			email: decoded.identity.email,
+		});
 	}
 
-	onButtonClick = (e) => {
+	onDeleteClick = (e) => {
 		const selectedNodes = this.gridApi.getSelectedNodes();
 		const selectedData = selectedNodes.map((node) => node.data);
 		if (selectedData[0] !== undefined) {
-			deleteStudent(selectedData[0]._id);
-			window.location.reload(true);
+			if (this.state.email === "rachelami@gmail.com"){
+
+				let txt;
+				let person = prompt("Please enter password:", "");
+				if (person === "12345") {
+					console.log("ok")
+					// txt = "Hello " + person + "! How are you today?";
+					deleteStudent(selectedData[0]._id);
+					window.location.reload(true);
+				} else {
+					console.log("denied")
+					// txt = "User cancelled the prompt.";
+					alert("Wrong Password")
+				}
+				
+		} else {
+			this.setState({alert: true});
+			//print you dont have autorization to delete
+			alert("You Dont Have Autorization To Delete")
 		}
-		// this.setState({reload: true});
+	}
 	};
+
 
 	onAccioClick = (event, callback) => {
 		event.preventDefault();
@@ -123,10 +151,30 @@ class StudentsList extends React.Component {
 		}
 	};
 
+
+	// AlertDismissibleExample() {
+	// 	const [show, setShow] = React.useState(true);
+	// 	console.log("dfsfds")
+	  
+	// 	if (show) {
+	// 	  return (
+	// 		<Alert variant="danger" onClose={() => setShow(false)} dismissible>
+	// 		  <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+	// 		  <p>
+	// 			Change this and that and try again. Duis mollis, est non commodo
+	// 			luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+	// 			Cras mattis consectetur purus sit amet fermentum.
+	// 		  </p>
+	// 		</Alert>
+	// 	  );
+	// 	}
+	// 	return <Button onClick={() => setShow(true)}>Show Alert</Button>;
+	//   }
+
 	render() {
 		console.log(this.state.columnDefs);
 		return (
-			<div className="flexBox">
+			<div className="flexBox listMarginTop">
 				<AppContext.Consumer>
 					{({ getID }) => (
 						<div className="flexBox">
@@ -163,9 +211,10 @@ class StudentsList extends React.Component {
 									<Button
 										variant="primary"
 										className="deleteBtn borderBtn"
-										onClick={this.onButtonClick}
+										onClick={this.onDeleteClick}
 									>
 										Avada Kedavra
+										{/* {this.state.alert === true && this.AlertDismissibleExample()} */}
 									</Button>
 								</div>
 							</div>

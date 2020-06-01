@@ -2,7 +2,6 @@
     color: white;
     margin-right: 45px;
     font-size: 24px;
-    /* margin-top: 20px; */
 }
 
 .nav-back{
@@ -25,4 +24,11 @@
 
 .profile-down{
     margin-bottom:26px;
+}
+
+.justify-content-md-center {
+    justify-content: flex-end;}
+
+.navbar-collapse{
+    justify-content: flex-end;
 }

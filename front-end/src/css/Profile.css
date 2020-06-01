@@ -1,0 +1,17 @@
+/* .tdWidth{
+    width:500px;
+} */
+
+td {
+	width: 100px;
+}
+
+table {
+	table-layout: fixed;
+}
+/* 
+/* @media (min-width: 576px) */
+/* .jumbotron { */
+	/* padding: 0px; */
+	/* margin: 0px !important; */
+

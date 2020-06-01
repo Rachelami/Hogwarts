@@ -10,6 +10,7 @@
     "ag-grid-react": "^23.1.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "jwt-decode": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-modal": "^3.11.2",
