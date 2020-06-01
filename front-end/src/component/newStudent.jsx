@@ -48,8 +48,8 @@ class PopupOnFocus extends React.Component {
 
 	render() {
 		let {current_magic_skills,want_skills } = this.state
-		console.log(current_magic_skills)
-		console.log(want_skills)
+		// console.log(current_magic_skills)
+		// console.log(want_skills)
 		return (
 			<Popup
 				trigger={

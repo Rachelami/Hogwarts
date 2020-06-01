@@ -103,13 +103,17 @@ class StudentsList extends React.Component {
 		let newInfo = previousinfo.concat(data.data);
 		this.setState({ rowData: newInfo });
 
+		
 		const token = localStorage.usertoken;
+		console.log("token")
+		console.log(token)
+		if (token !== undefined) {
 		const decoded = jwt_decode(token);
 		console.log("decoded")
 		console.log(decoded)
 		this.setState({
 			email: decoded.identity.email,
-		});
+		});}
 	}
 
 	onDeleteClick = (e) => {
@@ -172,7 +176,7 @@ class StudentsList extends React.Component {
 	//   }
 
 	render() {
-		console.log(this.state.columnDefs);
+		// console.log(this.state.columnDefs);
 		return (
 			<div className="flexBox listMarginTop">
 				<AppContext.Consumer>

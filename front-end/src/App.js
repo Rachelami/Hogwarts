@@ -41,7 +41,7 @@ class App extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.infoStudent._id);
+		// console.log(this.state.infoStudent._id);
 		return (
 			<div className="App">
 				<Router>
