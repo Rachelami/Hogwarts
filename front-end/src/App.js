@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/Navbar";
 import StudentPage from "./component/StudentPage";
+import Home from "./component/home";
 import AppContext from "./AppContext";
 import { getSingleStudent } from "./lib/api";
 
@@ -79,6 +80,9 @@ class App extends React.Component {
 									<Route exact path="/profile" component={Profile} />
 								</div>
 							{/* </div> */}
+							<Route path="/">
+								<Home />
+							</Route>
 						</AppContext.Provider>
 					</Switch>
 				</Router>

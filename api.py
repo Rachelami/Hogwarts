@@ -87,8 +87,15 @@ def set_user_skills_route(student_id, skills):
 
 @app.route("/student/check/<skill>") #works
 def get_student_with_skill_route(skill):
+    print("api skill")
+    print(skill)
     getSkill = db.get_student_with_skill(skill)
+    print("api getSkill")
+    print(getSkill)
     response = app.response_class(response=json.dumps(getSkill), status=200, mimetype="application/json")
+    print ("api response")
+    print (response)
+
     return response
 
 @app.route("/student/desired/<skill>") #works
@@ -116,13 +123,10 @@ jwt = JWTManager(app)
 @app.route('/users/register', methods=["POST"])
 # @app.route('/register', methods=["POST"])
 def register():
-    print("in the function")
     users = mongo.db.users
-    print(users)
     first_name = request.get_json()['first_name']
     last_name = request.get_json()['last_name']
     email = request.get_json()['email']
-    print(email)
     password = bcrypt.generate_password_hash(request.get_json()['password']).decode('utf-8')
     created = datetime.utcnow()
 

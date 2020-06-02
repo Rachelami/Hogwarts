@@ -65,8 +65,13 @@ class DbFunctions:
         return updated
 
     def get_student_with_skill(self, skill):
+        print("db skill")
+        print(skill)
         students_with_skill = db.students.aggregate([{'$match': {"current_magic_skills": skill}}, {"$count": "num_students"}])
         for i in students_with_skill:
+            print("db - i['num_students']")
+            print(i['num_students'])
+
             return i['num_students']
         return 0
 

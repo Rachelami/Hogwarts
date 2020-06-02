@@ -16,7 +16,9 @@ export function getSingleStudent(student_id) {
 }
 
 export function getStudentWithSkill(skill) {
-	return axios.get(`${baseUrl}/students/${skill}`);
+	// console.log(skill);
+	// return axios.get(`${baseUrl}/students/${skill}`);
+	return axios.get(`${baseUrl}/student/check/${skill}`);
 }
 
 export function getStudentWhoWantSkill(skill) {
@@ -53,9 +55,9 @@ export function addStudent(data) {
 // }
 
 export async function setUserSkills(student_id, skills) {
-	console.log("student_id, skills");
-	console.log(student_id);
-	console.log(skills);
+	// console.log("student_id, skills");
+	// console.log(student_id);
+	// console.log(skills);
 	await axios
 		.post(`${baseUrl}/student/${student_id}/set_skills/${skills}`)
 		.then(

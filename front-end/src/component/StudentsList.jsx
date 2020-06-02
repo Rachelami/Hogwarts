@@ -103,46 +103,44 @@ class StudentsList extends React.Component {
 		let newInfo = previousinfo.concat(data.data);
 		this.setState({ rowData: newInfo });
 
-		
 		const token = localStorage.usertoken;
-		console.log("token")
-		console.log(token)
-		if (token !== undefined) {
-		const decoded = jwt_decode(token);
-		console.log("decoded")
-		console.log(decoded)
-		this.setState({
-			email: decoded.identity.email,
-		});}
+		// console.log("token");
+		// console.log(token);
+		if (token !== "undefined") {
+			// console.log("in the loop");
+			const decoded = jwt_decode(token);
+			// console.log("decoded");
+			// console.log(decoded);
+			this.setState({
+				email: decoded.identity.email,
+			});
+		}
 	}
 
 	onDeleteClick = (e) => {
 		const selectedNodes = this.gridApi.getSelectedNodes();
 		const selectedData = selectedNodes.map((node) => node.data);
 		if (selectedData[0] !== undefined) {
-			if (this.state.email === "rachelami@gmail.com"){
-
+			if (this.state.email === "rachelami@gmail.com") {
 				let txt;
 				let person = prompt("Please enter password:", "");
 				if (person === "12345") {
-					console.log("ok")
+					console.log("ok");
 					// txt = "Hello " + person + "! How are you today?";
 					deleteStudent(selectedData[0]._id);
 					window.location.reload(true);
 				} else {
-					console.log("denied")
+					console.log("denied");
 					// txt = "User cancelled the prompt.";
-					alert("Wrong Password")
+					alert("Wrong Password");
 				}
-				
-		} else {
-			this.setState({alert: true});
-			//print you dont have autorization to delete
-			alert("You Dont Have Autorization To Delete")
+			} else {
+				this.setState({ alert: true });
+				//print you dont have autorization to delete
+				alert("You Dont Have Autorization To Delete");
+			}
 		}
-	}
 	};
-
 
 	onAccioClick = (event, callback) => {
 		event.preventDefault();
@@ -155,11 +153,10 @@ class StudentsList extends React.Component {
 		}
 	};
 
-
 	// AlertDismissibleExample() {
 	// 	const [show, setShow] = React.useState(true);
 	// 	console.log("dfsfds")
-	  
+
 	// 	if (show) {
 	// 	  return (
 	// 		<Alert variant="danger" onClose={() => setShow(false)} dismissible>
