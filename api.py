@@ -25,7 +25,6 @@ validator = Validators()
 @app.route("/students") #works
 def get_all_students_route():
     all_students = db.get_all_students()
-    # print(all_students)
     response = app.response_class(response=json.dumps(all_students), status=200, mimetype="application/json")
     return response
 
@@ -46,19 +45,13 @@ def add_student_route():
 
 @app.route("/student/<student_id>") #works
 def get_single_student_route(student_id):
-    # print("student_id")
-    # print(student_id)
     try:
         validator.validate_objectid(student_id)
     except Exception as error:
-        # print("error")
-        # print(error)
         response = app.response_class(response=json.dumps({"Error": str(error)}), status=400,
                                       mimetype="application/json")
         return response
     student = db.get_single_student(student_id)
-    # print("student")
-    # print(student)
     response = app.response_class(response=json.dumps(student), status=200, mimetype="application/json")
     return response
 
@@ -76,26 +69,16 @@ def delete_student_route(student_id):
 
 @app.route("/student/<student_id>/set_skills/<skills>", methods=['POST'])
 def set_user_skills_route(student_id, skills):
-    # print("skills API")
-    # print(skills)
     skillsArray = []
     skillsArray.append(skills)
     setSkills = db.set_user_skills( student_id, skillsArray)
     response = app.response_class(response=json.dumps(setSkills), status=200, mimetype="application/json")
-    # print("responce" +response)
     return response
 
 @app.route("/student/check/<skill>") #works
 def get_student_with_skill_route(skill):
-    print("api skill")
-    print(skill)
     getSkill = db.get_student_with_skill(skill)
-    print("api getSkill")
-    print(getSkill)
     response = app.response_class(response=json.dumps(getSkill), status=200, mimetype="application/json")
-    print ("api response")
-    print (response)
-
     return response
 
 @app.route("/student/desired/<skill>") #works

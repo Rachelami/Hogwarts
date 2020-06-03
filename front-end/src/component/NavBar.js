@@ -51,7 +51,7 @@ class Navbar extends Component {
 					Students List
 				</Link>
 				<Link className="main-navbar" to="/score">
-					House Score
+					Dashboard
 				</Link>
 
 				{/* <button

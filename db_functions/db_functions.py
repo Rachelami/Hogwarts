@@ -16,11 +16,9 @@ class DbFunctions:
         for i in students:
             i['_id']= str(i['_id'])
             student_list.append(i)
-        # print(student_list)
         return student_list
 
     def get_single_student(self, student_id):
-        # print("23. student_id" + student_id)
         student = db.students.find_one({'_id': ObjectId(student_id)})
         if student is None:
             return {"Error": "Id '{}' does not exist.".format(student_id)}
@@ -36,42 +34,21 @@ class DbFunctions:
             return False
 
     def set_user_skills(self,student_id, skills):
-        # print("skills DB")
-        # print(skills)
-        # print(("userid api" + student_id))
         my_stusent = self.get_single_student(student_id)
         # current_magic_skills_join = my_stusent["".join("current_magic_skills")]
         current_magic_skills = my_stusent["current_magic_skills"]
-
-        # print("current_magic_skills")
-        # print(current_magic_skills)
-        # print("current_magic_skills join")
-        # print(current_magic_skills_join)
         for i in skills:
-            # print("i")
-            # print(i)
             current_magic_skills.append(i)
             # current_magic_skills += (i)
-        # print(current_magic_skills)
-        # print("current_magic_skills ")
-        # print(current_magic_skills)
         current_magic_skills = list(dict.fromkeys(current_magic_skills))
-        # print("current_magic_skills")
-        # print(current_magic_skills)
-        # print(current_magic_skills)
         updated = db.students.update_one({'_id': ObjectId(student_id)}, {"$set": {"current_magic_skills":current_magic_skills}})
         # updated = db.students.update_one({'_id': ObjectId(student_id)}, {"$set": {"current_magic_skills":current_magic_skills}})
 
         return updated
 
     def get_student_with_skill(self, skill):
-        print("db skill")
-        print(skill)
         students_with_skill = db.students.aggregate([{'$match': {"current_magic_skills": skill}}, {"$count": "num_students"}])
         for i in students_with_skill:
-            print("db - i['num_students']")
-            print(i['num_students'])
-
             return i['num_students']
         return 0
 
@@ -83,10 +60,7 @@ class DbFunctions:
 
     def get_student_by_date(selfs, find_date):
         students_by_date = db.students.aggregate([{'$match': {"create_date": find_date}}, {"$count": "students_today"}])
-        # have_list = True if len(list(students_by_date)) else False;
-        # print(have_list)
         for i in students_by_date:
-            # print(i['students_today'])
             return i['students_today']
         return 0
 

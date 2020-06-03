@@ -4,13 +4,13 @@ import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import "../css/StudentsList.css";
-import Popup from "reactjs-popup";
+// import Popup from "reactjs-popup";
 import PopupOnFocus from "./newStudent";
 import { Button, Alert } from "react-bootstrap";
 import { Redirect } from "react-router";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import AppContext from "../AppContext";
-import NewStudent from "./StudentPage";
+// import NewStudent from "./StudentPage";
 import jwt_decode from "jwt-decode";
 
 class StudentsList extends React.Component {
@@ -104,10 +104,11 @@ class StudentsList extends React.Component {
 		this.setState({ rowData: newInfo });
 
 		const token = localStorage.usertoken;
-		// console.log("token");
-		// console.log(token);
-		if (token !== "undefined") {
-			// console.log("in the loop");
+		console.log("token");
+		console.log(token);
+		if (token) {
+		// if (!token !== "undefined") {
+			console.log("in the loop");
 			const decoded = jwt_decode(token);
 			// console.log("decoded");
 			// console.log(decoded);
@@ -123,21 +124,21 @@ class StudentsList extends React.Component {
 		if (selectedData[0] !== undefined) {
 			if (this.state.email === "rachelami@gmail.com") {
 				let txt;
-				let person = prompt("Please enter password:", "");
+				let person = prompt("Please Enter Password:", "");
 				if (person === "12345") {
 					console.log("ok");
 					// txt = "Hello " + person + "! How are you today?";
 					deleteStudent(selectedData[0]._id);
 					window.location.reload(true);
 				} else {
-					console.log("denied");
+					console.log("Denied");
 					// txt = "User cancelled the prompt.";
 					alert("Wrong Password");
 				}
 			} else {
 				this.setState({ alert: true });
 				//print you dont have autorization to delete
-				alert("You Dont Have Autorization To Delete");
+				alert("You Don't Have Autorization To Delete");
 			}
 		}
 	};
@@ -178,14 +179,8 @@ class StudentsList extends React.Component {
 			<div className="flexBox listMarginTop">
 				<AppContext.Consumer>
 					{({ getID }) => (
-						<div className="flexBox">
-							<div>
-								<img
-									src="./images/unnamed.gif"
-									alt="goldenSnitch"
-									className="goldenSnitch"
-								/>
-							</div>
+						
+					
 							<div className="container">
 								<PopupOnFocus />
 								<div className="ag-theme-alpine">
@@ -219,7 +214,7 @@ class StudentsList extends React.Component {
 									</Button>
 								</div>
 							</div>
-						</div>
+					
 					)}
 				</AppContext.Consumer>
 			</div>

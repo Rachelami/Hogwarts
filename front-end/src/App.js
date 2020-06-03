@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
 import StudentsList from "./component/StudentsList";
-import HouseScore from "./component/HouseScore";
+import Dashboard from "./component/Dashboard";
 // import { getAllStudents } from "./lib/api";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import 'bootstrap/dist/css/bootstrap.css';
 // import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./component/Navbar";
+import Navbar from "./component/NavBar";
 import StudentPage from "./component/StudentPage";
 import Home from "./component/home";
 import AppContext from "./AppContext";
@@ -64,7 +64,7 @@ class App extends React.Component {
 							</Route>
 
 							<Route path="/score">
-								<HouseScore />
+								<Dashboard />
 							</Route>
 							<Route path={`/studentPage/:id`}>
 								{/* <Route path={`/studentPage/id=${this.state.infoStudent._id}`}> */}

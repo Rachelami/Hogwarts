@@ -115,7 +115,7 @@ class PopupOnFocus extends React.Component {
 									inline
 									disabled = {this.state.disabled}
 									label="Gryffindor"
-									name="gryffindor"
+									name="Gryffindor"
 									type={type}
 									id={`custom-inline-${type}-13`}
 									onChange={(event) => this.setHouse(event.target.name)}
@@ -125,7 +125,7 @@ class PopupOnFocus extends React.Component {
 									inline
 									disabled = {this.state.disabled}
 									label="Ravenclaw"
-									name="ravenclaw"
+									name="Ravenclaw"
 									type={type}
 									id={`custom-inline-${type}-14`}
 									onChange={(event) => this.setHouse(event.target.name)}
@@ -135,7 +135,7 @@ class PopupOnFocus extends React.Component {
 									inline
 									disabled = {this.state.disabled}
 									label="Hufflepuff"
-									name="hufflepuff"
+									name="Hufflepuff"
 									type={type}
 									id={`custom-inline-${type}-15`}
 									onChange={(event) => this.setHouse(event.target.name)}
@@ -145,7 +145,7 @@ class PopupOnFocus extends React.Component {
 									inline
 									disabled = {this.state.disabled}
 									label="Slytherin"
-									name="slytherin"
+									name="Slytherin"
 									type={type}
 									id={`custom-inline-${type}-16`}
 									onChange={(event) => this.setHouse(event.target.name)}

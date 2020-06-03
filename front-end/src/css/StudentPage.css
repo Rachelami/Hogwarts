@@ -8,13 +8,15 @@
 	margin: auto;
 	text-align: center;
     font-family: arial;
-    background-color:white;
+    /* background-color:white; */
     display: flex;
     padding: 15px;
     align-items: center;
 	border-radius: 10px;
 	margin-top: 50px;
-	/* background-image: url("../images/4743807-parchment-png-100-images-in-collection-page-3-parchment-png-1542_2010_preview.png"); */
+	background-image: url("../images/4743807-parchment-png-100-images-in-collection-page-3-parchment-png-1542_2010_preview.png");
+	/* background-position: center; */
+	background-size: cover;
 }
 
 .studentPageBtn {
@@ -49,4 +51,5 @@ a:hover {
 
 .picDiv{
 	width: 300px;
+	margin-left: 40px
 }

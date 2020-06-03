@@ -3,7 +3,7 @@ import bson
 
 
 class Validators:
-    houses = ["gryffindor", "ravenclaw", "hufflepuff", "slytherin"]
+    houses = ["Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"]
 
     def validate_new_student(self, student):
         try:

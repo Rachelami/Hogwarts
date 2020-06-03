@@ -13,3 +13,17 @@ table {
 .row {
 	display: inherit;
 }
+
+.jumbotron{
+	background-image: url("../images/4743807-parchment-png-100-images-in-collection-page-3-parchment-png-1542_2010_preview.png");
+	/* background-image: url("https://www.vhv.rs/dpng/d/22-221006_transparent-parchment-png-png-download.png"); */
+	background-size: contain;
+	background-color: transparent!important;
+	background-repeat: no-repeat;
+	padding:0px
+}
+
+@media (min-width: 576px){
+.jumbotron {
+    padding: 30px;
+}}

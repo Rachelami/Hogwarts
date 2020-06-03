@@ -2,14 +2,14 @@
 	margin: 5px;
 	height: 60px;
 	width: 60px;
-	background-color: rgb(63, 146, 42);
+	background-color: rgb(63, 146, 42, 0.514);
 	text-align: center;
 	z-index: 1;
 }
 
 .addBtn:hover {
 	margin: 5px;
-	background-color: rgb(59, 85, 53);
+	background-color: rgba(59, 85, 53);
 	border: 1px solid black;
 	text-align: center;
 }

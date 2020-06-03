@@ -11,13 +11,10 @@ export function getAllStudents() {
 export function getSingleStudent(student_id) {
 	console.log("API student_id");
 	console.log(student_id);
-	// console.log(axios.get(`${baseUrl}/student/${student_id}`))
 	return axios.get(`${baseUrl}/student/${student_id}`);
 }
 
 export function getStudentWithSkill(skill) {
-	// console.log(skill);
-	// return axios.get(`${baseUrl}/students/${skill}`);
 	return axios.get(`${baseUrl}/student/check/${skill}`);
 }
 
@@ -26,14 +23,12 @@ export function getStudentWhoWantSkill(skill) {
 }
 
 export function getStudentByDate(date) {
-	return axios.get(`${baseUrl}/students/${date}`);
+	return axios.get(`${baseUrl}/student/date/${date}`);
 }
 
 //POST
 
 export function addStudent(data) {
-	// console.log("data");
-	// console.log(data);
 	axios.post(`${baseUrl}/student`, { data }).then(
 		(response) => {
 			console.log(response);
