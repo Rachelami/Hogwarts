@@ -1,11 +1,8 @@
 import React from "react";
-// import AppContext from "../AppContext";
 import "../css/StudentPage.css";
 import { withRouter } from "react-router-dom";
 import { getSingleStudent } from "../lib/api";
 import PopupOnFocus from "./EditStudent";
-
-// import queryString from 'query-sring'
 
 class StudentPage extends React.Component {
 	constructor(props) {
@@ -30,15 +27,12 @@ class StudentPage extends React.Component {
 
 		return (
 			<div>
-				{/* <AppContext.Consumer>
-					{({ infoStudent }) => ( */}
 				<div>
 					<div className="studentCard">
 						<div className="picDiv">
-							{infoStudent.house === "gryffindor" ||
-								(infoStudent.house === "Gryffindor" && (
+							{infoStudent.house === "Gryffindor" ||
+								(infoStudent.house === "gryffindor" && (
 									<img
-										// src="https://i.pinimg.com/originals/a1/bf/0a/a1bf0a96a8d25df94e22a1219582f7f7.jpg"
 										src="../images/house/gryffindor.png"
 										alt="gryffindor"
 										className="housePic"
@@ -48,7 +42,6 @@ class StudentPage extends React.Component {
 								(infoStudent.house === "Ravenclaw" && (
 									<img
 										src="../images/house/Untitled-1.png"
-										// src="https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/88363/91130/Harry-Potter-Ravenclaw-Crest-Official-wall-mounted-cardboard-cutout-buy-now-at-star__86173.1507640763.jpg?c=2&imbypass=on"
 										alt="ravenclaw"
 										className="housePic"
 									/>
@@ -56,7 +49,6 @@ class StudentPage extends React.Component {
 							{infoStudent.house === "hufflepuff" ||
 								(infoStudent.house === "Hufflepuff" && (
 									<img
-										// src="https://qph.fs.quoracdn.net/main-qimg-f4758650dd4a2ae5721a0289a076806f"
 										src="../images/house/hufflepuff.png"
 										alt="hufflepuff"
 										className="housePic"
@@ -65,7 +57,6 @@ class StudentPage extends React.Component {
 							{infoStudent.house === "slytherin" ||
 								(infoStudent.house === "Slytherin" && (
 									<img
-										// src="https://f0.pngfuel.com/png/869/121/slytherin-logo-png-clip-art.png"
 										src="../images/house/slytherin.png"
 										alt="slytherin"
 										className="housePic"
@@ -85,14 +76,11 @@ class StudentPage extends React.Component {
 								<p>Student ID: {infoStudent._id}</p>
 							</div>
 							<span>
-								{/* <button className="studentPageBtn">Edit student</button> */}
 								<PopupOnFocus />
 							</span>
 						</div>
 					</div>
 				</div>
-				{/* )}
-				</AppContext.Consumer> */}
 			</div>
 		);
 	}

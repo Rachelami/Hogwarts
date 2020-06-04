@@ -3,7 +3,6 @@ import "./App.css";
 import StudentsList from "./component/StudentsList";
 import Dashboard from "./component/Dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import Navbar from "./component/NavBar";
 import StudentPage from "./component/StudentPage";
 import Home from "./component/home";
 import AppContext from "./AppContext";
@@ -43,12 +42,11 @@ class App extends React.Component {
 								},
 							}}
 						>
-								<div className="container">
-									<Route exact path="/register" component={Register} />
-									{/* <Route exact path="/" component={Login} /> */}
-									<Route exact path="/login" component={Login} />
-									<Route exact path="/profile" component={Profile} />
-								</div>
+							<div className="container">
+								<Route exact path="/register" component={Register} />
+								<Route exact path="/login" component={Login} />
+								<Route exact path="/profile" component={Profile} />
+							</div>
 							<Route path="/students">
 								<StudentsList />
 							</Route>
@@ -71,7 +69,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-//I get a bat request from my axios when I try to  add a new student
-
-// refresh the page after deleteStudent

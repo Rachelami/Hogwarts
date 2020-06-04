@@ -1,7 +1,6 @@
 import React from "react";
 import Popup from "reactjs-popup";
 import { Button, Form } from "react-bootstrap";
-// import { addStudent } from "../lib/api";
 import "../css/NewStudent.css";
 import { withRouter } from "react-router-dom";
 import { getSingleStudent, setUserSkills } from "../lib/api";
@@ -19,7 +18,7 @@ class PopupOnFocus extends React.Component {
 	handleOnSubmit() {
 		let { infoStudent, current_magic_skills } = this.state;
 		console.log(infoStudent._id);
-		console.log(current_magic_skills)
+		console.log(current_magic_skills);
 		setUserSkills(infoStudent._id, current_magic_skills);
 	}
 
@@ -28,20 +27,18 @@ class PopupOnFocus extends React.Component {
 		getSingleStudent(paramsId).then((response) => {
 			this.setState({ infoStudent: response.data });
 		});
-    }
-    
-    curentSkills(name) {
+	}
+
+	curentSkills(name) {
 		console.log(name);
-		// this.setState({ current_magic_skills: })
 		this.setState({
-			current_magic_skills: [...this.state.current_magic_skills, name]
-		  })
-		console.log(this.state.current_magic_skills)
+			current_magic_skills: [...this.state.current_magic_skills, name],
+		});
+		console.log(this.state.current_magic_skills);
 	}
 
 	render() {
 		let { infoStudent } = this.state;
-		// console.log(infoStudent);
 		return (
 			<Popup
 				trigger={
@@ -61,24 +58,8 @@ class PopupOnFocus extends React.Component {
 					</div>
 					<div className="house">House: {infoStudent.house}</div>
 
-					{/* <Form.Group>
-						<Form.Label>Add Current skills</Form.Label>
-						<Form.Control
-							type="text"
-							name="current_magic_skills"
-							placeholder="Add Current skills"
-							onChange={(event) =>
-								this.setState({
-									current_magic_skills: [
-										...this.state.current_magic_skills,
-										event.target.value,
-									],
-								})
-							}
-						/>
-					</Form.Group> */}
-                    <div>Add Current skills:</div>
-                    <Form>
+					<div>Add Current skills:</div>
+					<Form>
 						{["checkbox"].map((type) => (
 							<div key={`custom-inline-${type}`} className="mb-3">
 								<Form.Check

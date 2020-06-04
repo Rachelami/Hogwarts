@@ -29,7 +29,7 @@ export function getStudentByDate(date) {
 //POST
 
 export function addStudent(data) {
-	console.log(data)
+	console.log(data);
 	axios.post(`${baseUrl}/student`, { data }).then(
 		(response) => {
 			console.log(response);
@@ -40,20 +40,7 @@ export function addStudent(data) {
 	);
 }
 
-// const config = {
-//     headers: {
-//       'Content-Type': 'application/x-www-form-urlencoded'
-//     }
-// }
-// export function addStudent(data) {
-//   console.log(data);
-//   return axios.post(`${baseUrl}/student`, data, config);
-// }
-
 export async function setUserSkills(student_id, skills) {
-	// console.log("student_id, skills");
-	// console.log(student_id);
-	// console.log(skills);
 	await axios
 		.post(`${baseUrl}/student/${student_id}/set_skills/${skills}`)
 		.then(
@@ -62,7 +49,6 @@ export async function setUserSkills(student_id, skills) {
 			},
 			(error) => {
 				console.log(error);
-				// this.setState({loading: false})
 			}
 		);
 }
@@ -78,6 +64,7 @@ export async function deleteStudent(student_id) {
 }
 
 // Login
+
 export const register = (newUser) => {
 	return axios
 		.post(`${baseUrl}/users/register`, {

@@ -1,13 +1,9 @@
 * {
-	/* font-family: cursive; */
-	/* font-family: "Cedarville Cursive", cursive; */
-	/* font-family: "Niconne", cursive; */
-	font-family: 'Handlee', cursive;
+	font-family: "Handlee", cursive;
 }
 
 .ag-theme-alpine {
 	margin: auto;
-	/* width: 100%; */
 	height: 500px;
 	width: 75vw;
 	opacity: 0.7;
@@ -27,7 +23,6 @@
 .deleteText {
 	color: white;
 	font-weight: bold;
-	/* font-family: cursive; */
 	text-shadow: 5px 5px 10px black;
 }
 
@@ -44,7 +39,6 @@
 }
 
 .ag-center-cols-viewport {
-	/* background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg"); */
 	background-color: black;
 }
 
@@ -52,27 +46,16 @@
 	border: none;
 }
 
-
-
 .ag-header-cell {
-	/* background-color: black; */
-	background-color:  black;
-	/* background-color:  rgb(70, 0, 211); */
-
+	background-color: black;
 	color: white;
-	/* background-color: #683f27; */
 	font-size: 20px;
-	/* background-image: url("https://www.transparenttextures.com/patterns/leather.png"); */
 }
 
 .ag-cell {
 	background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg");
-	/* font-family: cursive; */
-	/* background:black; */
-	/* color: white; */
 	color: black;
 	font-size: 20px;
-	/* color: black; */
 }
 
 .container .addBtn {
@@ -83,15 +66,9 @@
 	border-radius: 50%;
 	text-align: center;
 	line-height: 0px;
-    top: 80vh;
-    left: 80vw;
+	top: 80vh;
+	left: 80vw;
 }
-
-/* .container {
-	position: relative;
-	width: 100%;
-	max-width: 400px;
-} */
 
 .goTOpage {
 	background-color: rgb(173, 140, 49);
@@ -103,14 +80,14 @@
 
 .borderBtn {
 	border: 1px solid black;
-	font-family: 'Handlee', cursive;
+	font-family: "Handlee", cursive;
 	font-size: 20px;
 }
 
-.listMarginTop{
+.listMarginTop {
 	margin-top: 30px;
 }
 
-.ag-theme-alpine .ag-row{
+.ag-theme-alpine .ag-row {
 	border: none !important;
 }

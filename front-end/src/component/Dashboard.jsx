@@ -120,7 +120,6 @@ class Dashboard extends React.Component {
 						<Pie
 							data={this.state.chartData}
 							width={500}
-							// height={250}
 							options={{
 								title: {
 									display: true,
@@ -132,12 +131,10 @@ class Dashboard extends React.Component {
 									display: true,
 									position: "right",
 								},
-								// maintainAspectRatio: false,
 							}}
 						/>
 					</div>
 					<div className="calendar">
-						{/* <div className="text-center"> */}
 						{this.state.numberOfStudent > 1 && (
 							<div className="text-center">
 								Number Of Student That Was Added
@@ -152,8 +149,6 @@ class Dashboard extends React.Component {
 								<b>{this.state.numberOfStudent} student</b>
 							</div>
 						)}
-						{/* </div> */}
-
 						<div className="content-center flex">
 							<Calendar
 								handleDate={(date) => {

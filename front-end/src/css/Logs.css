@@ -14,37 +14,31 @@ table {
 	display: inherit;
 }
 
-.jumbotron{
-	/* background-image: url("../images/4743807-parchment-png-100-images-in-collection-page-3-parchment-png-1542_2010_preview.png"); */
+.jumbotron {
 	background-size: contain;
-	background-color: transparent!important;
+	background-color: transparent !important;
 	background-repeat: no-repeat;
 	position: absolute;
 	top: 10px;
-	left: 10px; 
+	left: 10px;
 	padding: 5px;
-
 }
 
-.profileParchment{
-	/* height: 400px; */
+.profileParchment {
 	width: 100%;
-    /* margin-left: 20%;
-    width: 700px; */
 }
 
-
-.relative{
-	position: relative;    
+.relative {
+	position: relative;
 	margin-top: 50px;
-
 }
 
-@media (min-width: 576px){
-.jumbotron {
-    padding: 30px;
-}}
+@media (min-width: 576px) {
+	.jumbotron {
+		padding: 30px;
+	}
+}
 
-.black-color{
+.black-color {
 	color: black;
 }

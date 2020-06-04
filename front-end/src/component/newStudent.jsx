@@ -69,8 +69,6 @@ class PopupOnFocus extends React.Component {
 
 	render() {
 		let { current_magic_skills, want_skills } = this.state;
-		// console.log(current_magic_skills)
-		// console.log(want_skills)
 		return (
 			<Popup
 				trigger={
@@ -116,17 +114,6 @@ class PopupOnFocus extends React.Component {
 							</Form.Group>
 						</div>
 					</div>
-					{/* 
-					<Form.Group controlId="formBasicPassword">
-						<Form.Label>House</Form.Label>
-						<Form.Control
-							type="text"
-							name="house"
-							placeholder="Enter House"
-							onChange={(event) => this.setState({ house: event.target.value })}
-						/>
-						<Form.Text className="RequiredText">*Required Text</Form.Text>
-					</Form.Group> */}
 					<div className="flexColumn center">
 						<div>House:</div>
 						<img
@@ -137,55 +124,10 @@ class PopupOnFocus extends React.Component {
 								this.SortingHat();
 							}}
 						/>
-						<div>The House Is: <b>{this.state.house}</b></div>
+						<div>
+							The House Is: <b>{this.state.house}</b>
+						</div>
 					</div>
-					{/* <Form>
-						{["checkbox"].map((type) => (
-							<div key={`custom-inline-${type}`} className="mb-3">
-								<Form.Check
-									custom
-									inline
-									disabled={this.state.disabled}
-									label="Gryffindor"
-									name="Gryffindor"
-									type={type}
-									id={`custom-inline-${type}-13`}
-									onChange={(event) => this.setHouse(event.target.name)}
-								/>
-								<Form.Check
-									custom
-									inline
-									disabled={this.state.disabled}
-									label="Ravenclaw"
-									name="Ravenclaw"
-									type={type}
-									id={`custom-inline-${type}-14`}
-									onChange={(event) => this.setHouse(event.target.name)}
-								/>
-								<Form.Check
-									custom
-									inline
-									disabled={this.state.disabled}
-									label="Hufflepuff"
-									name="Hufflepuff"
-									type={type}
-									id={`custom-inline-${type}-15`}
-									onChange={(event) => this.setHouse(event.target.name)}
-								/>
-								<Form.Check
-									custom
-									inline
-									disabled={this.state.disabled}
-									label="Slytherin"
-									name="Slytherin"
-									type={type}
-									id={`custom-inline-${type}-16`}
-									onChange={(event) => this.setHouse(event.target.name)}
-								/>
-							</div>
-						))}
-					</Form> */}
-
 					<div>Current skills:</div>
 					<Form>
 						{["checkbox"].map((type) => (
@@ -301,18 +243,6 @@ class PopupOnFocus extends React.Component {
 							</div>
 						))}
 					</Form>
-
-					{/* <Form.Group controlId="formBasicPassword">
-						<Form.Label>Desired skills</Form.Label>
-						<Form.Control
-							type="text"
-							name="want_skills"
-							placeholder="Enter Desired skills"
-							onChange={(event) =>
-								this.setState({ want_skills: event.target.value })
-							}
-						/>
-					</Form.Group> */}
 
 					<div>Desired skills:</div>
 					<Form>
@@ -456,43 +386,3 @@ class PopupOnFocus extends React.Component {
 }
 
 export default PopupOnFocus;
-
-// curentSkills(name) {
-// 	let {current_magic_skills} =this.state
-// 	console.log(name);
-// 	let current_magic_skills = [];
-// 	console.log("current_magic_skills length");
-// 	console.log(current_magic_skills.lengh);
-
-// 	if (current_magic_skills && current_magic_skills.length) {//not empty
-// 		console.log("current_magic_skills.length> 0");
-// 		for (let i = 0; i < current_magic_skills.length; i++) {
-// 			console.log("in the for loop");
-// 			if (current_magic_skills[i] === name) {
-// 				console.log("twice the same");
-// 				console.log(current_magic_skills[i]);
-// 				current_magic_skills.splice(i, 1);
-// 				console.log("after removing");
-// 				console.log(current_magic_skills);
-// 			}
-// 			// else {
-// 			// 	current_magic_skills.push(name);
-// 			// }
-// 		}
-// 	} else { //empty
-// 		current_magic_skills.push(name);
-// 		console.log("current_magic_skills after first push");
-// 		console.log(current_magic_skills);
-// 	}
-
-// 	// if (checkBeforState.length > 0) {
-// 	// 	console.log("checkBeforState.length");
-// 	// 	console.log(checkBeforState.length);
-// 	// 	this.setState({
-// 	// 		current_magic_skills: [...this.state.current_magic_skills, name],
-// 	// 	});
-// 	// }
-
-// 	// this.setState({
-// 	// 	current_magic_skills: [...this.state.current_magic_skills, name],
-// 	// });

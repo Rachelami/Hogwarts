@@ -42,7 +42,6 @@ class Register extends Component {
 		return (
 			<div className="container">
 				<div className="row white">
-					{/* <div className=""> */}
 					<div className="mt-5 mx-auto col-lg-4 offset-lg-4">
 						<form noValidate onSubmit={this.onSubmit}>
 							<h1 className="h3 mb-3 font-weight-normal">Register</h1>

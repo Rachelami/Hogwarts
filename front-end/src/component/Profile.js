@@ -22,7 +22,6 @@ class Profile extends Component {
 			last_name: decoded.identity.last_name,
 			email: decoded.identity.email,
 		});
-		// this.setState({goToPage: false})
 	}
 
 	render() {

@@ -40,24 +40,24 @@
 }
 
 .flex {
-    display: flex;
+	display: flex;
 }
 
-.firstNameDiv{
-    margin-right: 10px;
-    width: 350px;
+.firstNameDiv {
+	margin-right: 10px;
+	width: 350px;
 }
 
-.lastNameDiv{
-    width: 350px;
+.lastNameDiv {
+	width: 350px;
 }
 
-.popup-content{
-    padding: 0px !important;
-    border-radius: 10px;
+.popup-content {
+	padding: 0px !important;
+	border-radius: 10px;
 }
 
-.SortingHat{
+.SortingHat {
 	width: 100px;
 	cursor: pointer;
 }

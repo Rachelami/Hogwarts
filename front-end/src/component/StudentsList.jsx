@@ -4,13 +4,10 @@ import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import "../css/StudentsList.css";
-// import Popup from "reactjs-popup";
 import PopupOnFocus from "./newStudent";
 import { Button, Alert } from "react-bootstrap";
 import { Redirect } from "react-router";
-// import { Link } from "react-router-dom";
 import AppContext from "../AppContext";
-// import NewStudent from "./StudentPage";
 import jwt_decode from "jwt-decode";
 
 class StudentsList extends React.Component {
@@ -21,7 +18,6 @@ class StudentsList extends React.Component {
 			userID: "",
 			email: "",
 			alert: false,
-			// reload: false,
 			columnDefs: [
 				{
 					headerName: "",

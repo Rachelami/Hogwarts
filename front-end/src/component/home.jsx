@@ -1,4 +1,3 @@
-// import { getStudentWithSkill } from "../lib/api";
 import React from "react";
 import "../css/Navbar.css";
 
@@ -16,13 +15,9 @@ class Home extends React.Component {
 					alt="hogwartsFlag"
 					className="hogwartsFlag"
 				/>
-				<img
-					src="https://i.imgur.com/aa3K0qq.gif"
-					alt="hogwarts"
-					// className="hogwarts"
-				/>
-		
-                <div className="main-text">school of witchcraft and wizardry</div>
+				<img src="https://i.imgur.com/aa3K0qq.gif" alt="hogwarts" />
+
+				<div className="main-text">school of witchcraft and wizardry</div>
 			</div>
 		);
 	}
