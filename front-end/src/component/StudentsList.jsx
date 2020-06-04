@@ -107,11 +107,8 @@ class StudentsList extends React.Component {
 		console.log("token");
 		console.log(token);
 		if (token) {
-		// if (!token !== "undefined") {
 			console.log("in the loop");
 			const decoded = jwt_decode(token);
-			// console.log("decoded");
-			// console.log(decoded);
 			this.setState({
 				email: decoded.identity.email,
 			});
@@ -127,17 +124,14 @@ class StudentsList extends React.Component {
 				let person = prompt("Please Enter Password:", "");
 				if (person === "12345") {
 					console.log("ok");
-					// txt = "Hello " + person + "! How are you today?";
 					deleteStudent(selectedData[0]._id);
 					window.location.reload(true);
 				} else {
 					console.log("Denied");
-					// txt = "User cancelled the prompt.";
 					alert("Wrong Password");
 				}
 			} else {
 				this.setState({ alert: true });
-				//print you dont have autorization to delete
 				alert("You Don't Have Autorization To Delete");
 			}
 		}
@@ -154,67 +148,41 @@ class StudentsList extends React.Component {
 		}
 	};
 
-	// AlertDismissibleExample() {
-	// 	const [show, setShow] = React.useState(true);
-	// 	console.log("dfsfds")
-
-	// 	if (show) {
-	// 	  return (
-	// 		<Alert variant="danger" onClose={() => setShow(false)} dismissible>
-	// 		  <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-	// 		  <p>
-	// 			Change this and that and try again. Duis mollis, est non commodo
-	// 			luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-	// 			Cras mattis consectetur purus sit amet fermentum.
-	// 		  </p>
-	// 		</Alert>
-	// 	  );
-	// 	}
-	// 	return <Button onClick={() => setShow(true)}>Show Alert</Button>;
-	//   }
-
 	render() {
-		// console.log(this.state.columnDefs);
 		return (
 			<div className="flexBox listMarginTop">
 				<AppContext.Consumer>
 					{({ getID }) => (
-						
-					
-							<div className="container">
-								<PopupOnFocus />
-								<div className="ag-theme-alpine">
-									<AgGridReact
-										columnDefs={this.state.columnDefs}
-										rowData={this.state.rowData}
-										onGridReady={(params) => (this.gridApi = params.api)}
-									></AgGridReact>
-									<div className="deleteText">
-										Please select a user before clicking the button
-									</div>
-									<Button
-										variant="primary"
-										className="goTOpage borderBtn"
-										onClick={(event) => this.onAccioClick(event, getID)}
-									>
-										{this.state.acciStudent === true && (
-											// <Redirect to={`/studentPage`} />
-											// <Redirect to={`/studentPage/:id`} />
-											<Redirect to={`/studentPage/${this.state.userID}`} />
-										)}
-										Accio Student
-									</Button>
-									<Button
-										variant="primary"
-										className="deleteBtn borderBtn"
-										onClick={this.onDeleteClick}
-									>
-										Avada Kedavra
-										{/* {this.state.alert === true && this.AlertDismissibleExample()} */}
-									</Button>
+						<div className="container">
+							<PopupOnFocus />
+							<div className="ag-theme-alpine">
+								<AgGridReact
+									columnDefs={this.state.columnDefs}
+									rowData={this.state.rowData}
+									onGridReady={(params) => (this.gridApi = params.api)}
+								></AgGridReact>
+								<div className="deleteText">
+									Please select a user before clicking the button
 								</div>
+								<Button
+									variant="primary"
+									className="goTOpage borderBtn"
+									onClick={(event) => this.onAccioClick(event, getID)}
+								>
+									{this.state.acciStudent === true && (
+										<Redirect to={`/studentPage/${this.state.userID}`} />
+									)}
+									Accio Student
+								</Button>
+								<Button
+									variant="primary"
+									className="deleteBtn borderBtn"
+									onClick={this.onDeleteClick}
+								>
+									Avada Kedavra
+								</Button>
 							</div>
-					
+						</div>
 					)}
 				</AppContext.Consumer>
 			</div>

@@ -44,7 +44,8 @@
 }
 
 .ag-center-cols-viewport {
-	background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg");
+	/* background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg"); */
+	background-color: black;
 }
 
 .ag-theme-alpine .ag-root-wrapper {

@@ -8,6 +8,8 @@ class DbFunctions:
 
     def add_student(self, student):
         student_id = db.students.insert_one(student)
+        print("student_id")
+        print(student_id)
         return str(student_id)
 
     def get_all_students(self):

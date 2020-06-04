@@ -12,7 +12,7 @@ class Dashboard extends React.Component {
 			selectedDate: "",
 			chartData: {
 				labels: [
-					"flying",
+					"Flying",
 					"Defense",
 					"Parseltongue",
 					"Astronomy",
@@ -71,7 +71,6 @@ class Dashboard extends React.Component {
 
 	async componentDidMount() {
 		let { labels } = this.state.chartData;
-		// const [startDate, setStartDate] = useState(new Date());
 		let countSkillArray = [];
 		for (let i = 0; i < labels.length; i++) {
 			let countSkill = await getStudentWithSkill(labels[i]);
@@ -128,6 +127,7 @@ class Dashboard extends React.Component {
 									display: true,
 									text: "Skills Chart",
 									fontSize: 20,
+									fontColor: "white",
 								},
 								legend: {
 									display: true,
@@ -138,24 +138,24 @@ class Dashboard extends React.Component {
 						/>
 					</div>
 					<div className="calendar">
-							{/* <div className="text-center"> */}
-							{this.state.numberOfStudent > 1 && (
-								<div className="text-center">
-									Number Of Student That Was Added
-									<br /> At The {this.state.selectedDate} Is{" "}
-									<b>{this.state.numberOfStudent} students</b>
-								</div>
-							)}
-							{this.state.numberOfStudent <= 1 && (
-								<div className="text-center">
-									Number Of Student That Was Added
-									<br /> At The {this.state.selectedDate} Is{" "}
-									<b>{this.state.numberOfStudent} student</b>
-								</div>
-							)}
-							{/* </div> */}
+						{/* <div className="text-center"> */}
+						{this.state.numberOfStudent > 1 && (
+							<div className="text-center">
+								Number Of Student That Was Added
+								<br /> At The {this.state.selectedDate} Is{" "}
+								<b>{this.state.numberOfStudent} students</b>
+							</div>
+						)}
+						{this.state.numberOfStudent <= 1 && (
+							<div className="text-center">
+								Number Of Student That Was Added
+								<br /> At The {this.state.selectedDate} Is{" "}
+								<b>{this.state.numberOfStudent} student</b>
+							</div>
+						)}
+						{/* </div> */}
 
-											<div className="content-center flex">
+						<div className="content-center flex">
 							<Calendar
 								handleDate={(date) => {
 									this.setCalander(date);

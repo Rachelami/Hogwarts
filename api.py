@@ -3,17 +3,12 @@ from models.student import Student
 from db_functions import DbFunctions
 from Validators.validator import Validators
 import json
-from flask_cors import CORS
-
 from flask_pymongo import PyMongo
-from bson.objectid import ObjectId
 from datetime import datetime
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_jwt_extended import create_access_token
-
-import bson
 
 
 app = Flask(__name__)
@@ -31,14 +26,23 @@ def get_all_students_route():
 
 @app.route("/student", methods=['POST']) #works
 def add_student_route():
+    print("in the fun")
     content = request.json['data']
+    print("content")
+    print(content)
     try:
         validator.validate_new_student(content)
     except Exception as error:
+        print("error")
+        print(error)
         response = app.response_class(response=json.dumps({"error": str(error)}), status=400,
                                       mimetype="application/json")
+        print("response")
+        print(response)
         return response
     new_student = Student(content)
+    print("new_student")
+    print(new_student)
     student_id = db.add_student(new_student)
     response = app.response_class(response=json.dumps({"student_id": student_id}), status=200, mimetype="application/json")
     return response

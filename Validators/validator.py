@@ -36,7 +36,7 @@ class Validators:
             raise ValueError("Last name is missing contains an invalid character.")
 
     def validate_house(self, student_house):
-        if not student_house.lower() in self.houses:
+        if not student_house in self.houses:
             raise ValueError("House {} does not exist.".format(student_house))
 
     def validate_objectid(self, object_id):

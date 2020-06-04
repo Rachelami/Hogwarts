@@ -29,6 +29,7 @@ export function getStudentByDate(date) {
 //POST
 
 export function addStudent(data) {
+	console.log(data)
 	axios.post(`${baseUrl}/student`, { data }).then(
 		(response) => {
 			console.log(response);

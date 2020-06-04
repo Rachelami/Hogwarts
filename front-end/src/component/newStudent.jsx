@@ -42,12 +42,12 @@ class PopupOnFocus extends React.Component {
 
 	setHouse(name) {
 		console.log(name);
-		this.setState({ house: name })
-		this.setState({ disabled: true })
+		this.setState({ house: name });
+		this.setState({ disabled: true });
 	}
 
 	render() {
-		let {current_magic_skills,want_skills } = this.state
+		let { current_magic_skills, want_skills } = this.state;
 		// console.log(current_magic_skills)
 		// console.log(want_skills)
 		return (
@@ -65,36 +65,37 @@ class PopupOnFocus extends React.Component {
 					onSubmit={(event) => this.handleOnSubmit(event)}
 				>
 					<div className="flex">
-					<div className="firstNameDiv">
-					<Form.Group controlId="formBasicEmail">
-						<Form.Label>First Name</Form.Label>
-						<Form.Control
-							type="text"
-							name="first_name"
-							placeholder="Enter First Name"
-							onChange={(event) =>
-								this.setState({ first_name: event.target.value })
-							}
-						/>
-						<Form.Text className="RequiredText">*Required Text</Form.Text>
-					</Form.Group>
-					</div>
+						<div className="firstNameDiv">
+							<Form.Group controlId="formBasicEmail">
+								<Form.Label>First Name</Form.Label>
+								<Form.Control
+									type="text"
+									name="first_name"
+									placeholder="Enter First Name"
+									onChange={(event) =>
+										this.setState({ first_name: event.target.value })
+									}
+								/>
+								<Form.Text className="RequiredText">*Required Text</Form.Text>
+							</Form.Group>
+						</div>
 
-							<div className="lastNameDiv">
-					<Form.Group controlId="formBasicPassword">
-						<Form.Label>Last Name</Form.Label>
-						<Form.Control
-							type="text"
-							name="last_name"
-							placeholder="Enter Last Name"
-							onChange={(event) =>
-								this.setState({ last_name: event.target.value })
-							}
-						/>
-						<Form.Text className="RequiredText">*Required Text</Form.Text>
-					</Form.Group>
-					</div></div>
-{/* 
+						<div className="lastNameDiv">
+							<Form.Group controlId="formBasicPassword">
+								<Form.Label>Last Name</Form.Label>
+								<Form.Control
+									type="text"
+									name="last_name"
+									placeholder="Enter Last Name"
+									onChange={(event) =>
+										this.setState({ last_name: event.target.value })
+									}
+								/>
+								<Form.Text className="RequiredText">*Required Text</Form.Text>
+							</Form.Group>
+						</div>
+					</div>
+					{/* 
 					<Form.Group controlId="formBasicPassword">
 						<Form.Label>House</Form.Label>
 						<Form.Control
@@ -113,7 +114,7 @@ class PopupOnFocus extends React.Component {
 								<Form.Check
 									custom
 									inline
-									disabled = {this.state.disabled}
+									disabled={this.state.disabled}
 									label="Gryffindor"
 									name="Gryffindor"
 									type={type}
@@ -123,7 +124,7 @@ class PopupOnFocus extends React.Component {
 								<Form.Check
 									custom
 									inline
-									disabled = {this.state.disabled}
+									disabled={this.state.disabled}
 									label="Ravenclaw"
 									name="Ravenclaw"
 									type={type}
@@ -133,7 +134,7 @@ class PopupOnFocus extends React.Component {
 								<Form.Check
 									custom
 									inline
-									disabled = {this.state.disabled}
+									disabled={this.state.disabled}
 									label="Hufflepuff"
 									name="Hufflepuff"
 									type={type}
@@ -143,7 +144,7 @@ class PopupOnFocus extends React.Component {
 								<Form.Check
 									custom
 									inline
-									disabled = {this.state.disabled}
+									disabled={this.state.disabled}
 									label="Slytherin"
 									name="Slytherin"
 									type={type}
@@ -153,8 +154,6 @@ class PopupOnFocus extends React.Component {
 							</div>
 						))}
 					</Form>
-
-
 
 					<div>Current skills:</div>
 					<Form>
@@ -284,8 +283,6 @@ class PopupOnFocus extends React.Component {
 						/>
 					</Form.Group> */}
 
-
-
 					<div>Desired skills:</div>
 					<Form>
 						{["checkbox"].map((type) => (
@@ -401,8 +398,6 @@ class PopupOnFocus extends React.Component {
 							</div>
 						))}
 					</Form>
-
-
 
 					<Form.Group controlId="formBasicPassword">
 						<Form.Label>Course Interests</Form.Label>

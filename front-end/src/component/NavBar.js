@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-// import React from "react";
-// import { Link } from "react-router-dom";
 import "../css/Navbar.css";
 
 class Navbar extends Component {
@@ -53,30 +51,9 @@ class Navbar extends Component {
 				<Link className="main-navbar" to="/score">
 					Dashboard
 				</Link>
-
-				{/* <button
-					className="navbar-toggler"
-					type="button"
-					data-toggle="collapse"
-					data-target="#navbar1"
-					aria-controls="navbar1"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-					<span className="navbar-toggler-icon"></span>
-				</button> */}
-
 				<div
 					className="navbar-collapse"
-					// id="navbar1"
 				>
-					{/* <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link to="/" className="nav-link">
-                                Home
-                            </Link>
-                        </li>
-                    </ul> */}
 					{localStorage.usertoken ? userLink : loginRegLink}
 				</div>
 			</nav>
