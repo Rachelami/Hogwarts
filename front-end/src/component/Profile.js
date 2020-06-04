@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import jwt_decode from "jwt-decode";
 import "../css/Logs.css";
-import NavBar from "./NavBar"
-
-
+import NavBar from "./NavBar";
 
 class Profile extends Component {
 	constructor() {
@@ -13,7 +11,6 @@ class Profile extends Component {
 			last_name: "",
 			email: "",
 			goToPage: true,
-
 		};
 	}
 
@@ -30,13 +27,21 @@ class Profile extends Component {
 
 	render() {
 		return (
-			<div className="container">
-			{/* {this.state.goToPage && <NavBar/>} */}
+			<div className="relative">
+				<div className="row">
+					<div className="col-8 offset-2">
+						<img
+							src="../images/4743807-parchment-png-100-images-in-collection-page-3-parchment-png-1542_2010_preview.png"
+							alt="hogwartsFlag"
+							className="profileParchment"
+						/>
+					</div>
+				</div>
 				<div className="jumbotron mt-5">
 					<div className="col-sm-8 mx-auto">
-						<h1 className="text-center">Profile</h1>
+						<h1 className="text-center black-color">Profile</h1>
 					</div>
-					<table className="table col-md-6 mx-auto">
+					<table className="table col-md-4 mx-auto">
 						<tbody>
 							<tr>
 								<td className="tdWidth">First Name</td>
@@ -52,7 +57,6 @@ class Profile extends Component {
 							</tr>
 						</tbody>
 					</table>
-
 				</div>
 			</div>
 		);
