@@ -28,9 +28,9 @@ class Navbar extends Component {
 		const userLink = (
 			<div className="flex navSpace">
 				<div className="flex center">
-					<Link className="main-navbar" to="/">
+					{/* <Link className="main-navbar" to="/">
 						Home
-					</Link>
+					</Link> */}
 					<Link className="main-navbar" to="/students">
 						Students List
 					</Link>

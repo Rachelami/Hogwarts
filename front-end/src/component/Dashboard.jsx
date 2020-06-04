@@ -105,7 +105,6 @@ class Dashboard extends React.Component {
 		return (
 			<div className="flex listMarginTop">
 				<div className="as">
-					dsfd
 					<div>
 						<img
 							src={

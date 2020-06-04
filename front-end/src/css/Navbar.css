@@ -1,50 +1,60 @@
 .main-navbar {
-    color: white;
-    margin-right: 45px;
-    font-size: 18px;
+	color: white;
+	margin-right: 45px;
+	font-size: 18px;
 }
 
-.nav-back{
-    height: 58px;
-    top: 0px;
-    background-color: #343A40;
-    border-radius: 6px;
-    padding: 15px 35px;
-    margin-bottom: 52px;
+.nav-back {
+	height: 58px;
+	top: 0px;
+	background-color: #343a40;
+	border-radius: 6px;
+	padding: 15px 35px;
+	margin-bottom: 52px;
 }
 
-.white{
-    color: white;
+.white {
+	color: white;
 }
 
-.right{
-    justify-content:flex-end;
-    margin-top: 18px;
+.right {
+	justify-content: flex-end;
+	margin-top: 18px;
 }
 
-.profile-down{
-    margin-bottom:26px;
+.profile-down {
+	margin-bottom: 26px;
 }
 
 .justify-content-md-center {
-    justify-content: flex-end;}
-
-/* .navbar-collapse{
-    justify-content: flex-end;
-} */
-
-.center{
-    /* justify-content: center; */
-    align-items: center;
+	justify-content: flex-end;
 }
 
-.navSpace{
-    width:100%;
-    justify-content: space-between;
+.center {
+	justify-content: center;
+	align-items: center;
 }
 
-.flexEnd{
-    justify-content: flex-end;
-    display: flex;
-    width: 100%;
+.navSpace {
+	width: 100%;
+	justify-content: space-between;
+}
+
+.flexEnd {
+	justify-content: flex-end;
+	display: flex;
+	width: 100%;
+}
+
+.hogwarts {
+	margin-top: 10%;
+}
+
+.main-text {
+	color: gold;
+	font-size: 50px;
+}
+
+.hogwartsFlag {
+	width: 200px;
 }

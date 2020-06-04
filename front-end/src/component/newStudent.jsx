@@ -15,7 +15,7 @@ class PopupOnFocus extends React.Component {
 			want_skills: [],
 			course_interests: "",
 			disabled: false,
-			hatChoice:true,
+			hatChoice: true,
 		};
 	}
 
@@ -56,18 +56,15 @@ class PopupOnFocus extends React.Component {
 		this.setState({ disabled: true });
 	}
 
-	SortingHat(){
-		let house1 = ["Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"]
-		let index = Math.floor(Math.random() * 4)
-		console.log(index)
-		let studentHouse = house1[index]
-		console.log(this.state)
-		if (this.state.hatChoice){
-
-			this.setState({ house: studentHouse, hatChoice:false})
-
+	SortingHat() {
+		let house1 = ["Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"];
+		let index = Math.floor(Math.random() * 4);
+		console.log(index);
+		let studentHouse = house1[index];
+		console.log(this.state);
+		if (this.state.hatChoice) {
+			this.setState({ house: studentHouse, hatChoice: false });
 		}
-
 	}
 
 	render() {
@@ -130,16 +127,18 @@ class PopupOnFocus extends React.Component {
 						/>
 						<Form.Text className="RequiredText">*Required Text</Form.Text>
 					</Form.Group> */}
-
-					<div>House:</div>
-					<img
-						src="./images/hat.png"
-						alt="Sorting Hat"
-						className="SortingHat"
-						onClick={()=>{this.SortingHat()}}
-					/>
-					<div>{this.state.house}</div>
-
+					<div className="flexColumn center">
+						<div>House:</div>
+						<img
+							src="./images/hat.png"
+							alt="Sorting Hat"
+							className="SortingHat"
+							onClick={() => {
+								this.SortingHat();
+							}}
+						/>
+						<div>The House Is: <b>{this.state.house}</b></div>
+					</div>
 					{/* <Form>
 						{["checkbox"].map((type) => (
 							<div key={`custom-inline-${type}`} className="mb-3">
