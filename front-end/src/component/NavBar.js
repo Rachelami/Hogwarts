@@ -11,7 +11,7 @@ class Navbar extends Component {
 
 	render() {
 		const loginRegLink = (
-			<ul className="navbar-nav">
+			<ul className="navbar-nav flexEnd">
 				<li className="nav-item">
 					<Link to="/login" className="nav-link">
 						Login
@@ -26,34 +26,36 @@ class Navbar extends Component {
 		);
 
 		const userLink = (
-			<ul className="navbar-nav">
-				<li className="nav-item">
-					<Link to="/profile" className="nav-link">
-						User
+			<div className="flex navSpace">
+				<div className="flex center">
+					<Link className="main-navbar" to="/">
+						Home
 					</Link>
-				</li>
-				<li className="nav-item">
-					<a href="#" onClick={this.logOut.bind(this)} className="nav-link">
-						Logout
-					</a>
-				</li>
-			</ul>
+					<Link className="main-navbar" to="/students">
+						Students List
+					</Link>
+					<Link className="main-navbar" to="/score">
+						Dashboard
+					</Link>
+				</div>
+				<ul className="navbar-nav">
+					<li className="nav-item">
+						<Link to="/profile" className="nav-link">
+							User
+						</Link>
+					</li>
+					<li className="nav-item">
+						<a href="#" onClick={this.logOut.bind(this)} className="nav-link">
+							Logout
+						</a>
+					</li>
+				</ul>
+			</div>
 		);
 
 		return (
 			<nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
-				<Link className="main-navbar" to="/">
-					Home
-				</Link>
-				<Link className="main-navbar" to="/students">
-					Students List
-				</Link>
-				<Link className="main-navbar" to="/score">
-					Dashboard
-				</Link>
-				<div
-					className="navbar-collapse"
-				>
+				<div className="navbar-collapse">
 					{localStorage.usertoken ? userLink : loginRegLink}
 				</div>
 			</nav>

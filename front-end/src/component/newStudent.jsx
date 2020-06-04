@@ -15,6 +15,7 @@ class PopupOnFocus extends React.Component {
 			want_skills: [],
 			course_interests: "",
 			disabled: false,
+			hatChoice:true,
 		};
 	}
 
@@ -22,28 +23,51 @@ class PopupOnFocus extends React.Component {
 		addStudent(this.state);
 	}
 
-	curentSkills(name) {
-		console.log(name);
-		// this.setState({ current_magic_skills: })
-		this.setState({
-			current_magic_skills: [...this.state.current_magic_skills, name],
-		});
-		// console.log(this.state.current_magic_skills);
+	curentSkills(event) {
+		console.log(event.target.checked);
+		let NewCurentMagicSkill = this.state.current_magic_skills;
+		if (event.target.checked) {
+			NewCurentMagicSkill.push(event.target.name);
+		} else {
+			NewCurentMagicSkill = NewCurentMagicSkill.filter((skill) => {
+				return skill !== event.target.name;
+			});
+		}
+		this.setState({ current_magic_skills: NewCurentMagicSkill });
 	}
 
-	DesiredSkills(name) {
-		console.log(name);
-		// this.setState({ current_magic_skills: })
-		this.setState({
-			want_skills: [...this.state.want_skills, name],
-		});
-		// console.log(this.state.current_magic_skills);
+	DesiredSkills(event) {
+		console.log(event);
+		console.log(event.target.checked);
+		let NewWantSkills = this.state.want_skills;
+		if (event.target.checked) {
+			NewWantSkills.push(event.target.name);
+		} else {
+			NewWantSkills = NewWantSkills.filter((skill) => {
+				return skill !== event.target.name;
+			});
+		}
+		this.setState({ want_skills: NewWantSkills });
 	}
 
 	setHouse(name) {
 		console.log(name);
 		this.setState({ house: name });
 		this.setState({ disabled: true });
+	}
+
+	SortingHat(){
+		let house1 = ["Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"]
+		let index = Math.floor(Math.random() * 4)
+		console.log(index)
+		let studentHouse = house1[index]
+		console.log(this.state)
+		if (this.state.hatChoice){
+
+			this.setState({ house: studentHouse, hatChoice:false})
+
+		}
+
 	}
 
 	render() {
@@ -108,7 +132,15 @@ class PopupOnFocus extends React.Component {
 					</Form.Group> */}
 
 					<div>House:</div>
-					<Form>
+					<img
+						src="./images/hat.png"
+						alt="Sorting Hat"
+						className="SortingHat"
+						onClick={()=>{this.SortingHat()}}
+					/>
+					<div>{this.state.house}</div>
+
+					{/* <Form>
 						{["checkbox"].map((type) => (
 							<div key={`custom-inline-${type}`} className="mb-3">
 								<Form.Check
@@ -153,7 +185,7 @@ class PopupOnFocus extends React.Component {
 								/>
 							</div>
 						))}
-					</Form>
+					</Form> */}
 
 					<div>Current skills:</div>
 					<Form>
@@ -166,7 +198,7 @@ class PopupOnFocus extends React.Component {
 									name="Flying"
 									type={type}
 									id={`custom-inline-${type}-1`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -175,7 +207,7 @@ class PopupOnFocus extends React.Component {
 									name="Defense"
 									type={type}
 									id={`custom-inline-${type}-2`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -184,7 +216,7 @@ class PopupOnFocus extends React.Component {
 									name="Parseltongue"
 									type={type}
 									id={`custom-inline-${type}-3`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -193,7 +225,7 @@ class PopupOnFocus extends React.Component {
 									name="Astronomy"
 									type={type}
 									id={`custom-inline-${type}-4`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -202,7 +234,7 @@ class PopupOnFocus extends React.Component {
 									name="Charms"
 									type={type}
 									id={`custom-inline-${type}-5`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -211,7 +243,7 @@ class PopupOnFocus extends React.Component {
 									name="Herbs"
 									type={type}
 									id={`custom-inline-${type}-6`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -220,7 +252,7 @@ class PopupOnFocus extends React.Component {
 									name="History"
 									type={type}
 									id={`custom-inline-${type}-7`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -229,7 +261,7 @@ class PopupOnFocus extends React.Component {
 									name="Potions"
 									type={type}
 									id={`custom-inline-${type}-8`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -238,7 +270,7 @@ class PopupOnFocus extends React.Component {
 									name="Transfiguration"
 									type={type}
 									id={`custom-inline-${type}-9`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -247,7 +279,7 @@ class PopupOnFocus extends React.Component {
 									name="Runes"
 									type={type}
 									id={`custom-inline-${type}-10`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -256,7 +288,7 @@ class PopupOnFocus extends React.Component {
 									name="Divination"
 									type={type}
 									id={`custom-inline-${type}-11`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -265,7 +297,7 @@ class PopupOnFocus extends React.Component {
 									name="Muggle Knowledge"
 									type={type}
 									id={`custom-inline-${type}-12`}
-									onChange={(event) => this.curentSkills(event.target.name)}
+									onChange={(event) => this.curentSkills(event)}
 								/>
 							</div>
 						))}
@@ -294,7 +326,7 @@ class PopupOnFocus extends React.Component {
 									name="Flying"
 									type={type}
 									id={`custom-inline-${type}-17`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -303,7 +335,7 @@ class PopupOnFocus extends React.Component {
 									name="Defense"
 									type={type}
 									id={`custom-inline-${type}-18`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -312,7 +344,7 @@ class PopupOnFocus extends React.Component {
 									name="Parseltongue"
 									type={type}
 									id={`custom-inline-${type}-19`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -321,7 +353,7 @@ class PopupOnFocus extends React.Component {
 									name="Astronomy"
 									type={type}
 									id={`custom-inline-${type}-20`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -330,7 +362,7 @@ class PopupOnFocus extends React.Component {
 									name="Charms"
 									type={type}
 									id={`custom-inline-${type}-21`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -339,7 +371,7 @@ class PopupOnFocus extends React.Component {
 									name="Herbs"
 									type={type}
 									id={`custom-inline-${type}-22`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -348,7 +380,7 @@ class PopupOnFocus extends React.Component {
 									name="History"
 									type={type}
 									id={`custom-inline-${type}-23`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -357,7 +389,7 @@ class PopupOnFocus extends React.Component {
 									name="Potions"
 									type={type}
 									id={`custom-inline-${type}-24`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -366,7 +398,7 @@ class PopupOnFocus extends React.Component {
 									name="Transfiguration"
 									type={type}
 									id={`custom-inline-${type}-25`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -375,7 +407,7 @@ class PopupOnFocus extends React.Component {
 									name="Runes"
 									type={type}
 									id={`custom-inline-${type}-26`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -384,7 +416,7 @@ class PopupOnFocus extends React.Component {
 									name="Divination"
 									type={type}
 									id={`custom-inline-${type}-27`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 								<Form.Check
 									custom
@@ -393,7 +425,7 @@ class PopupOnFocus extends React.Component {
 									name="Muggle Knowledge"
 									type={type}
 									id={`custom-inline-${type}-28`}
-									onChange={(event) => this.DesiredSkills(event.target.name)}
+									onChange={(event) => this.DesiredSkills(event)}
 								/>
 							</div>
 						))}
@@ -425,3 +457,43 @@ class PopupOnFocus extends React.Component {
 }
 
 export default PopupOnFocus;
+
+// curentSkills(name) {
+// 	let {current_magic_skills} =this.state
+// 	console.log(name);
+// 	let current_magic_skills = [];
+// 	console.log("current_magic_skills length");
+// 	console.log(current_magic_skills.lengh);
+
+// 	if (current_magic_skills && current_magic_skills.length) {//not empty
+// 		console.log("current_magic_skills.length> 0");
+// 		for (let i = 0; i < current_magic_skills.length; i++) {
+// 			console.log("in the for loop");
+// 			if (current_magic_skills[i] === name) {
+// 				console.log("twice the same");
+// 				console.log(current_magic_skills[i]);
+// 				current_magic_skills.splice(i, 1);
+// 				console.log("after removing");
+// 				console.log(current_magic_skills);
+// 			}
+// 			// else {
+// 			// 	current_magic_skills.push(name);
+// 			// }
+// 		}
+// 	} else { //empty
+// 		current_magic_skills.push(name);
+// 		console.log("current_magic_skills after first push");
+// 		console.log(current_magic_skills);
+// 	}
+
+// 	// if (checkBeforState.length > 0) {
+// 	// 	console.log("checkBeforState.length");
+// 	// 	console.log(checkBeforState.length);
+// 	// 	this.setState({
+// 	// 		current_magic_skills: [...this.state.current_magic_skills, name],
+// 	// 	});
+// 	// }
+
+// 	// this.setState({
+// 	// 	current_magic_skills: [...this.state.current_magic_skills, name],
+// 	// });

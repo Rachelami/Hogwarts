@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import jwt_decode from "jwt-decode";
 import "../css/Logs.css";
+import NavBar from "./NavBar"
+
 
 
 class Profile extends Component {
@@ -10,6 +12,8 @@ class Profile extends Component {
 			first_name: "",
 			last_name: "",
 			email: "",
+			goToPage: true,
+
 		};
 	}
 
@@ -21,11 +25,13 @@ class Profile extends Component {
 			last_name: decoded.identity.last_name,
 			email: decoded.identity.email,
 		});
+		// this.setState({goToPage: false})
 	}
 
 	render() {
 		return (
 			<div className="container">
+			{/* {this.state.goToPage && <NavBar/>} */}
 				<div className="jumbotron mt-5">
 					<div className="col-sm-8 mx-auto">
 						<h1 className="text-center">Profile</h1>
@@ -46,6 +52,7 @@ class Profile extends Component {
 							</tr>
 						</tbody>
 					</table>
+
 				</div>
 			</div>
 		);

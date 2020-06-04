@@ -56,7 +56,8 @@
 
 .ag-header-cell {
 	/* background-color: black; */
-	background-color:  rgb(70, 0, 211);
+	background-color:  black;
+	/* background-color:  rgb(70, 0, 211); */
 
 	color: white;
 	/* background-color: #683f27; */
@@ -65,10 +66,11 @@
 }
 
 .ag-cell {
-	/* background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg"); */
+	background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg");
 	/* font-family: cursive; */
-	background:black;
-	color: white;
+	/* background:black; */
+	/* color: white; */
+	color: black;
 	font-size: 20px;
 	/* color: black; */
 }

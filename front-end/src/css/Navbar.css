@@ -29,6 +29,22 @@
 .justify-content-md-center {
     justify-content: flex-end;}
 
-.navbar-collapse{
+/* .navbar-collapse{
     justify-content: flex-end;
+} */
+
+.center{
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.navSpace{
+    width:100%;
+    justify-content: space-between;
+}
+
+.flexEnd{
+    justify-content: flex-end;
+    display: flex;
+    width: 100%;
 }

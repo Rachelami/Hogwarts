@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { login } from "../lib/api";
 import "../css/Logs.css";
+import NavBar from "./NavBar"
 
 class Login extends Component {
 	constructor() {
@@ -8,6 +9,7 @@ class Login extends Component {
 		this.state = {
 			email: "",
 			password: "",
+			// goToPage: false,
 		};
 
 		this.onChange = this.onChange.bind(this);
@@ -27,16 +29,19 @@ class Login extends Component {
 		};
 		console.log(user);
 		login(user).then((res) => {
-			// console.log(res);
 			if (res === undefined) {
 				alert("User Dosent Exist");
 			} else if (!res.error) {
 				this.props.history.push(`/profile`);
+				console.log("ddfgfhfhf")
+				this.setState({goToPage: true})
 			}
 		});
 	}
 
+
 	render() {
+		// this.setState({ goToPage: false });
 		return (
 			<div className="container">
 				<div className="row white">
@@ -72,6 +77,7 @@ class Login extends Component {
 							>
 								Sign In
 							</button>
+							{/* {this.state.goToPage && <NavBar/>} */}
 						</form>
 					</div>
 				</div>

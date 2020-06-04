@@ -43,6 +43,12 @@ class App extends React.Component {
 								},
 							}}
 						>
+								<div className="container">
+									<Route exact path="/register" component={Register} />
+									{/* <Route exact path="/" component={Login} /> */}
+									<Route exact path="/login" component={Login} />
+									<Route exact path="/profile" component={Profile} />
+								</div>
 							<Route path="/students">
 								<StudentsList />
 							</Route>
@@ -53,11 +59,6 @@ class App extends React.Component {
 							<Route path={`/studentPage/:id`}>
 								<StudentPage />
 							</Route>
-								<div className="container">
-									<Route exact path="/register" component={Register} />
-									<Route exact path="/login" component={Login} />
-									<Route exact path="/profile" component={Profile} />
-								</div>
 							<Route path="/">
 								<Home />
 							</Route>
