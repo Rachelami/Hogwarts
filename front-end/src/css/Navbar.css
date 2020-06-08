@@ -58,3 +58,21 @@
 .hogwartsFlag {
 	width: 200px;
 }
+
+.main-navbar:hover {
+	color: rgba(153, 102, 255);
+}
+
+@media screen and (max-width: 992px) {
+	.main-navbar {
+		font-size: 18px;
+		margin: 0px 5px;
+	}
+	.hogwarts-txt {
+		width: -webkit-fill-available;
+	}
+
+	.main-text {
+		font-size: 28px;
+	}
+}

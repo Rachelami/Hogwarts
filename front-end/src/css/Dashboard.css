@@ -35,3 +35,25 @@
 .react-datepicker__header {
 	background-color: rgba(153, 102, 255, 0.2);
 }
+
+.listMarginTop {
+	justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) {
+	.listMarginTop {
+		flex-direction: column;
+		align-items: center;
+	}
+	.chart {
+		height: auto;
+		width: 70%;
+	}
+	/* .App{
+	width: auto;
+	height: 100vh;
+} */
+	.img-responsive {
+		width: 100%;
+	}
+}

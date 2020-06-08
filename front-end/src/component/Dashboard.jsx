@@ -106,58 +106,60 @@ class Dashboard extends React.Component {
 			<div className="flex listMarginTop">
 				<div className="as">
 					<div>
-						<img
+						{/* <img
 							src={
 								"https://static.wixstatic.com/media/2ded8c_97dac7475d0e4adc87b78d66496a92cd~mv2.gif"
 							}
 							alt="HouseScore"
 							className="img-responsive"
-						/>
+						/> */}
 					</div>
 				</div>
-				<div className="flexColumn">
-					<div className="chart">
-						<Pie
-							data={this.state.chartData}
-							width={500}
-							options={{
-								title: {
-									display: true,
-									text: "Skills Chart",
-									fontSize: 20,
-									fontColor: "white",
-								},
-								legend: {
-									display: true,
-									position: "right",
-								},
+				{/* <div className="flexColumn"> */}
+				<div className="chart">
+					<Pie
+						data={this.state.chartData}
+						// width={500}
+						height={400}
+						options={{
+							title: {
+								display: true,
+								text: "Skills Chart",
+								fontSize: 20,
+								fontColor: "white",
+							},
+							legend: {
+								display: true,
+								position: "bottom",
+								// position: "right",
+							},
+						}}
+					/>
+				</div>
+				<div className="calendar">
+					{this.state.numberOfStudent > 1 && (
+						<div className="text-center">
+							Number Of Student That Was Added
+							<br /> At The {this.state.selectedDate} Is{" "}
+							<b>{this.state.numberOfStudent} students</b>
+						</div>
+					)}
+					{this.state.numberOfStudent <= 1 && (
+						<div className="text-center">
+							Number Of Student That Was Added
+							<br /> At The {this.state.selectedDate} Is{" "}
+							<b>{this.state.numberOfStudent} student</b>
+						</div>
+					)}
+					<div className="content-center flex">
+						<Calendar
+							handleDate={(date) => {
+								this.setCalander(date);
 							}}
 						/>
 					</div>
-					<div className="calendar">
-						{this.state.numberOfStudent > 1 && (
-							<div className="text-center">
-								Number Of Student That Was Added
-								<br /> At The {this.state.selectedDate} Is{" "}
-								<b>{this.state.numberOfStudent} students</b>
-							</div>
-						)}
-						{this.state.numberOfStudent <= 1 && (
-							<div className="text-center">
-								Number Of Student That Was Added
-								<br /> At The {this.state.selectedDate} Is{" "}
-								<b>{this.state.numberOfStudent} student</b>
-							</div>
-						)}
-						<div className="content-center flex">
-							<Calendar
-								handleDate={(date) => {
-									this.setCalander(date);
-								}}
-							/>
-						</div>
-					</div>
 				</div>
+				{/* </div> */}
 			</div>
 		);
 	}

@@ -33,10 +33,14 @@ table {
 	margin-top: 50px;
 }
 
-@media (min-width: 576px) {
+@media screen and (max-width: 600px) {
 	.jumbotron {
 		padding: 30px;
 	}
+	/* .relative {
+		position: inherit;
+		margin-top: 15px;
+	} */
 }
 
 .black-color {

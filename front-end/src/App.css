@@ -1,9 +1,13 @@
-.App {
+body{
 	background-image: url("https://i.makeagif.com/media/8-03-2015/q1rHUR.gif");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
-	height: 100vh;
+	min-height: 110vh;
+
 }
+/* .App {
+	/* background-color:black; */
+
 
 .App-logo {
 	height: 40vmin;

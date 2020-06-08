@@ -51,3 +51,26 @@ a:hover {
 	width: 300px;
 	margin-left: 40px;
 }
+
+@media screen and (max-width: 992px) {
+.studentCard{
+	/* background: wheat; */
+	display: block;
+	background-image: none;	
+	margin: 0px;
+
+}
+.cardTextRight {
+    width: auto;
+	background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg");
+    padding: 5px;
+	border-radius: 10px;
+	margin: 10px 0px;
+
+}
+.picDiv{
+	width: auto;
+	margin: auto;
+}
+
+}

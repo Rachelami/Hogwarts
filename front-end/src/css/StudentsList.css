@@ -3,10 +3,9 @@
 }
 
 .ag-theme-alpine {
-	margin: auto;
 	height: 500px;
 	width: 75vw;
-	opacity: 0.7;
+	opacity: 0.8;
 }
 
 .deleteBtn {
@@ -59,9 +58,9 @@
 }
 
 .container .addBtn {
-	position: absolute;
-	display: flex;
-	transform: translate(-50%, -50%);
+	/* position: absolute;
+	display: flex; */
+	/* transform: translate(-50%, -50%); */
 	font-size: 50px;
 	border-radius: 50%;
 	text-align: center;
@@ -90,4 +89,26 @@
 
 .ag-theme-alpine .ag-row {
 	border: none !important;
+}
+
+@media screen and (max-width: 992px) {
+	.ag-theme-alpine {
+		width: 100%;
+	}
+	.navbar-nav {
+		flex-direction: row;
+	}
+	.nav-item {
+		margin: 0px 5px;
+	}
+	.container .addBtn {
+		top: 77vh;
+		left: 89vw;
+	}
+	.ag-theme-alpine {
+		height: 500px;
+	}
+	.ag-theme-alpine .ag-cell{
+		padding-left: 5px;
+	}
 }

@@ -149,8 +149,7 @@ class StudentsList extends React.Component {
 			<div className="flexBox listMarginTop">
 				<AppContext.Consumer>
 					{({ getID }) => (
-						<div className="container">
-							<PopupOnFocus />
+						<div className="container flex center">
 							<div className="ag-theme-alpine">
 								<AgGridReact
 									columnDefs={this.state.columnDefs}
@@ -177,6 +176,7 @@ class StudentsList extends React.Component {
 								>
 									Avada Kedavra
 								</Button>
+							<PopupOnFocus />
 							</div>
 						</div>
 					)}

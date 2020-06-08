@@ -28,7 +28,7 @@ class Profile extends Component {
 		return (
 			<div className="relative">
 				<div className="row">
-					<div className="col-8 offset-2">
+					<div className="col-md-8 offset-md-2">
 						<img
 							src="../images/4743807-parchment-png-100-images-in-collection-page-3-parchment-png-1542_2010_preview.png"
 							alt="hogwartsFlag"

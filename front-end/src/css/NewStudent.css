@@ -61,3 +61,17 @@
 	width: 100px;
 	cursor: pointer;
 }
+
+@media screen and (max-width: 992px) {
+	.popup-content {
+		width: 90% !important;
+		/* height: 1500px; */
+		border: none !important;
+	}
+	.popup-overlay {
+		position: absolute !important;
+		height: max-content;
+		background: black !important;
+		margin-top: 70px;
+	}
+}
